@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pet_lovers/views/splash.view.dart';
+import 'package:pet_lovers/views/splash_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,12 +10,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-        title: 'Pet Lovers',
-        debugShowCheckedModeBanner: false,
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: SplashView());
+      title: 'Pet Lovers',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ),
+      home: const SplashPage(),
+    );
   }
 }

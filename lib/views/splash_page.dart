@@ -1,42 +1,30 @@
-import 'dart:async';
-
-import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
-import 'package:pet_lovers/constant/colors.constant.dart';
-import 'package:pet_lovers/views/home.view.dart';
+import 'package:flutter/material.dart';
 
-class SplashView extends StatefulWidget {
-  SplashView({Key key}) : super(key: key);
+import '../constant/colors.constant.dart';
+
+class SplashPage extends StatefulWidget {
+  const SplashPage({Key? key}) : super(key: key);
 
   @override
-  _SplashViewState createState() => _SplashViewState();
+  _SplashPageState createState() => _SplashPageState();
 }
 
-class _SplashViewState extends State<SplashView> {
-  Timer timer;
-
+class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     super.initState();
-    timer = Timer.periodic(Duration(seconds: 2), (timer) {
-      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(
-        builder: (context) {
-          return HomeView();
-        },
-      ), (route) => false);
-    });
   }
 
   @override
   void dispose() {
     super.dispose();
-    timer.cancel();
   }
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         width: size.width,
