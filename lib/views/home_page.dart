@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+import '../core/petlovers_core.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -10,9 +10,31 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    final textTheme = Theme.of(context).textTheme;
+    return Scaffold(
+      backgroundColor: PLThemeConstant.white,
+      appBar: AppBar(
+        elevation: 0,
+        centerTitle: true,
+        backgroundColor: PLThemeConstant.white,
+        leading: IconButton(
+          onPressed: () {},
+          icon: Image.asset(
+            homeMenu,
+            width: 30,
+            height: 30,
+          ),
+        ),
+        title: Text(
+          "Fahmi dwi syahputra",
+          style: textTheme.bodyText2,
+        ),
+      ),
       body: Center(
-        child: Text('home'),
+        child: Container(
+          color: PLThemeConstant.white,
+          child: const Text('home'),
+        ),
       ),
     );
   }
