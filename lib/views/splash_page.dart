@@ -63,13 +63,13 @@ class _SplashPageState extends State<SplashPage> {
                   TextSpan(
                     text: 'Pet ',
                     style: TextStyle(
-                      color: ColorsConstant.blackPrimary,
+                      color: PLColor.blackPrimary,
                     ),
                   ),
                   TextSpan(
                     text: 'Lovers! ',
                     style: TextStyle(
-                      color: ColorsConstant.pinkPrimary,
+                      color: PLColor.pinkPrimary,
                     ),
                   ),
                 ],
@@ -80,8 +80,7 @@ class _SplashPageState extends State<SplashPage> {
               width: 230,
               child: Text(
                 'Dengan ini rasa sayang dengan hewan mu bertambah.',
-                style:
-                    TextStyle(color: ColorsConstant.blackPrimary, fontSize: 16),
+                style: TextStyle(color: PLColor.blackPrimary, fontSize: 16),
                 textAlign: TextAlign.center,
               ),
             ),
@@ -92,13 +91,13 @@ class _SplashPageState extends State<SplashPage> {
                   TextSpan(
                     text: '#Sayangi',
                     style: TextStyle(
-                      color: ColorsConstant.pinkPrimary,
+                      color: PLColor.pinkPrimary,
                     ),
                   ),
                   TextSpan(
                     text: 'Hewan',
                     style: TextStyle(
-                      color: ColorsConstant.blackPrimary,
+                      color: PLColor.blackPrimary,
                     ),
                   ),
                 ],
