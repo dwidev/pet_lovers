@@ -1,0 +1,31 @@
+{
+ "configurations": [
+     {
+         "name": "Production Flutter Debug",
+         "type": "dart",
+         "request": "launch",
+         "program": "lib/main_prod.dart",
+         "args": [
+             "--flavor", "prod"
+         ]
+     },
+     {
+         "name": "UAT Flutter Debug",
+         "type": "dart",
+         "request": "launch",
+         "program": "lib/main_uat.dart",
+         "args": [
+             "--flavor", "uat"
+         ]
+     },
+     {
+         "name": "Staging Flutter Debug",
+         "type": "dart",
+         "request": "launch",
+         "program": "lib/main_staging.dart",
+         "args": [
+             "--flavor", "staging"
+         ]
+     }
+ ]
+}
