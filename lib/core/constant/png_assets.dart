@@ -1,8 +1,13 @@
 const String backPink = "assets/icons/back_pink.png";
 const String bird = "assets/icons/bird.png";
 const String cat = "assets/icons/cat.png";
+const String catCollorfull = "assets/icons/cat_colorfull.png";
 const String comment = "assets/icons/comment.png";
 const String dog = "assets/icons/dog.png";
+const String dogColorfull = "assets/icons/dog_colorfull.png";
 const String follow = "assets/icons/follow.png";
 const String heart = "assets/icons/heart.png";
 const String homeMenu = "assets/icons/home_menu.png";
+const String addToCart = "assets/icons/add_to_cart.png";
+const String owlColorfull = "assets/icons/owl_colorfull.png";
+const String more = "assets/icons/more.png";
