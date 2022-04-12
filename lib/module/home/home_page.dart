@@ -51,197 +51,203 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: Container(
-        width: double.infinity,
-        // color: Colors.red,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(PLThemeConstant.sizeM),
-              child: Text(
-                "Selamat datang Pet Lovers!!",
-                style: textTheme.headline1,
-              ),
-            ),
-            Container(
-              decoration: const BoxDecoration(
-                color: PLThemeConstant.lightPrimary,
-                borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(PLThemeConstant.radius + 10),
-                  topRight: Radius.circular(PLThemeConstant.radius + 10),
+      body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Container(
+          width: double.infinity,
+          // color: Colors.red,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(PLThemeConstant.sizeM),
+                child: Text(
+                  "Selamat datang Pet Lovers!!",
+                  style: textTheme.headline1,
+                  overflow: TextOverflow.clip,
                 ),
               ),
-              padding: const EdgeInsets.symmetric(
-                horizontal: PLThemeConstant.sizeMS,
-              ),
-              child: Column(
-                children: [
-                  const SizedBox(height: PLThemeConstant.sizeML),
-                  TextFormField(
-                    decoration: const InputDecoration(
-                      hintText: "Telusuri apapun disini ....",
+              Container(
+                decoration: const BoxDecoration(
+                  color: PLThemeConstant.lightPrimary,
+                  borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(PLThemeConstant.radius + 10),
+                    topRight: Radius.circular(PLThemeConstant.radius + 10),
+                  ),
+                ),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: PLThemeConstant.sizeMS,
+                ),
+                child: Column(
+                  children: [
+                    const SizedBox(height: PLThemeConstant.sizeML),
+                    TextFormField(
+                      decoration: const InputDecoration(
+                        hintText: "Telusuri apapun disini ....",
+                      ),
                     ),
-                  ),
-                  const SizedBox(height: PLThemeConstant.sizeML),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      ...listCat.map(
-                        (icon) => Container(
-                          width: 70,
-                          child: Card(
-                            shape: const CircleBorder(),
-                            child: Material(
-                                clipBehavior: Clip.hardEdge,
-                                borderRadius: BorderRadius.circular(
-                                  PLThemeConstant.radius * 10,
-                                ),
-                                child: InkWell(
-                                  onTap: () {
-                                    print("category");
-                                  },
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(
-                                      PLThemeConstant.sizeMS,
-                                    ),
-                                    child: icon != more
-                                        ? Container(
-                                            width: 20,
-                                            child: Image.asset(
-                                              icon,
-                                            ),
-                                          )
-                                        : Column(
-                                            children: [
-                                              Image.asset(
-                                                icon,
-                                                width: 30,
-                                              ),
-                                            ],
-                                          ),
+                    const SizedBox(height: PLThemeConstant.sizeML),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        ...listCat.map(
+                          (icon) => Container(
+                            width: 70,
+                            child: Card(
+                              shape: const CircleBorder(),
+                              child: Material(
+                                  clipBehavior: Clip.hardEdge,
+                                  borderRadius: BorderRadius.circular(
+                                    PLThemeConstant.radius * 10,
                                   ),
-                                )),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: PLThemeConstant.sizeM),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        "Open adopt",
-                        style: textTheme.bodyText1,
-                      ),
-                      TextButton(
-                        onPressed: () {},
-                        child: Text(
-                          "lihat semua",
-                          style: textTheme.caption,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Container(
-                    padding: EdgeInsets.zero,
-                    height: 310,
-                    child: ListView.builder(
-                      scrollDirection: Axis.horizontal,
-                      itemCount: 3,
-                      itemBuilder: (_, s) {
-                        return Container(
-                          width: 150,
-                          height: 310,
-                          margin: const EdgeInsets.symmetric(
-                            horizontal: PLThemeConstant.sizeS,
-                            vertical: 20,
-                          ),
-                          child: Card(
-                            margin: EdgeInsets.zero,
-                            child: Material(
-                              borderRadius: PLThemeConstant.cardBorderRadius,
-                              clipBehavior: Clip.hardEdge,
-                              child: InkWell(
-                                onTap: () {},
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Container(
-                                      width: double.infinity,
-                                      height: 120,
-                                      decoration: const BoxDecoration(
-                                        image: DecorationImage(
-                                          image: AssetImage(
-                                              "assets/images/persia.jpeg"),
-                                          fit: BoxFit.cover,
-                                        ),
-                                        color: Colors.amber,
-                                        borderRadius: BorderRadius.only(
-                                          topLeft: Radius.circular(
-                                            PLThemeConstant.radius,
-                                          ),
-                                          topRight: Radius.circular(
-                                            PLThemeConstant.radius,
-                                          ),
-                                          bottomLeft: Radius.circular(
-                                            50,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    Container(
+                                  child: InkWell(
+                                    onTap: () {
+                                      print("category");
+                                    },
+                                    child: Padding(
                                       padding: const EdgeInsets.all(
-                                        PLThemeConstant.sizeS,
+                                        PLThemeConstant.sizeMS,
                                       ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            "Persia",
-                                            style: textTheme.bodyText1,
-                                            maxLines: 1,
-                                          ),
-                                          const Text(
-                                            "Lorem ipsum si dolor emet Lorem ipsum si dolor emet Lorem ipsum si dolor emet Lorem ipsum si dolor emet",
-                                            maxLines: 2,
-                                          ),
-                                          Text(
-                                            "500k",
-                                            style: textTheme.headline1,
-                                          ),
-                                          const SizedBox(
-                                            height: PLThemeConstant.sizeS,
-                                          ),
-                                          const Card(
-                                            margin: EdgeInsets.zero,
-                                            child: CircleAvatar(
-                                              radius: 15,
-                                              backgroundImage: NetworkImage(
-                                                profileSourceDummy,
+                                      child: icon != more
+                                          ? Container(
+                                              width: 20,
+                                              child: Image.asset(
+                                                icon,
                                               ),
-                                              backgroundColor:
-                                                  Colors.transparent,
+                                            )
+                                          : Column(
+                                              children: [
+                                                Image.asset(
+                                                  icon,
+                                                  width: 30,
+                                                ),
+                                              ],
                                             ),
-                                          )
-                                        ],
+                                    ),
+                                  )),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: PLThemeConstant.sizeM),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          "Open adopt",
+                          style: textTheme.bodyText1,
+                        ),
+                        TextButton(
+                          onPressed: () {},
+                          child: Text(
+                            "lihat semua",
+                            style: textTheme.caption,
+                          ),
+                        ),
+                      ],
+                    ),
+                    Container(
+                      padding: EdgeInsets.zero,
+                      height: 340,
+                      child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        scrollDirection: Axis.horizontal,
+                        itemCount: 3,
+                        itemBuilder: (_, s) {
+                          return Container(
+                            width: 150,
+                            height: 310,
+                            margin: const EdgeInsets.symmetric(
+                              horizontal: PLThemeConstant.sizeS,
+                              vertical: 20,
+                            ),
+                            child: Card(
+                              margin: EdgeInsets.zero,
+                              child: Material(
+                                borderRadius: PLThemeConstant.cardBorderRadius,
+                                clipBehavior: Clip.hardEdge,
+                                child: InkWell(
+                                  onTap: () {},
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        width: double.infinity,
+                                        height: 120,
+                                        decoration: const BoxDecoration(
+                                          image: DecorationImage(
+                                            image: AssetImage(
+                                                "assets/images/persia.jpeg"),
+                                            fit: BoxFit.cover,
+                                          ),
+                                          color: Colors.amber,
+                                          borderRadius: BorderRadius.only(
+                                            topLeft: Radius.circular(
+                                              PLThemeConstant.radius,
+                                            ),
+                                            topRight: Radius.circular(
+                                              PLThemeConstant.radius,
+                                            ),
+                                            bottomLeft: Radius.circular(
+                                              50,
+                                            ),
+                                          ),
+                                        ),
                                       ),
-                                    )
-                                  ],
+                                      Container(
+                                        padding: const EdgeInsets.all(
+                                          PLThemeConstant.sizeS,
+                                        ),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              "Persia",
+                                              style: textTheme.bodyText1,
+                                              maxLines: 1,
+                                            ),
+                                            const Text(
+                                              "Lorem ipsum si dolor emet Lorem ipsum si dolor emet Lorem ipsum si dolor emet Lorem ipsum si dolor emet",
+                                              maxLines: 2,
+                                            ),
+                                            Text(
+                                              "500k",
+                                              style: textTheme.headline1,
+                                            ),
+                                            const SizedBox(
+                                              height: PLThemeConstant.sizeS,
+                                            ),
+                                            const Card(
+                                              margin: EdgeInsets.zero,
+                                              child: CircleAvatar(
+                                                radius: 15,
+                                                backgroundImage: NetworkImage(
+                                                  profileSourceDummy,
+                                                ),
+                                                backgroundColor:
+                                                    Colors.transparent,
+                                              ),
+                                            )
+                                          ],
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        );
-                      },
+                          );
+                        },
+                      ),
                     ),
-                  ),
-                ],
-              ),
-            )
-          ],
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
