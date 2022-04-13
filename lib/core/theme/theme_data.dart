@@ -87,25 +87,25 @@ TextTheme get _textTheme {
     headline1: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
-      fontSize: 25,
+      fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
     bodyText1: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
-      fontSize: 17,
+      fontSize: 14,
       fontWeight: FontWeight.bold,
     ),
     bodyText2: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
-      fontSize: 14,
+      fontSize: 12,
       fontWeight: FontWeight.normal,
     ),
     caption: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
-      fontSize: 12,
+      fontSize: 11,
       fontWeight: FontWeight.normal,
     ),
   );
