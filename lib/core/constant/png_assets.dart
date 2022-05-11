@@ -9,5 +9,6 @@ const String follow = "assets/icons/follow.png";
 const String heart = "assets/icons/heart.png";
 const String homeMenu = "assets/icons/home_menu.png";
 const String addToCart = "assets/icons/add_to_cart.png";
+const String addToCartWhite = "assets/icons/add_to_cart_white.png";
 const String owlColorfull = "assets/icons/owl_colorfull.png";
 const String more = "assets/icons/more.png";
