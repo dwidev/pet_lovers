@@ -1,3 +1,5 @@
+import 'package:pet_lovers/core/navigator/navigator.dart';
+import 'package:pet_lovers/module/shop/presentation/page/cart/cart_page.dart';
 import 'package:pet_lovers/module/shop/presentation/widgets/shop_tile_widget.dart';
 
 import '../../../../core/petlovers_core.dart';
@@ -47,7 +49,9 @@ class _HomePageState extends State<HomePage> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              push(context: context, page: const CartPage());
+            },
             icon: Image.asset(
               addToCart,
               width: 30,

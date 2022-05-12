@@ -9,10 +9,11 @@ class PetLoversApp extends StatelessWidget {
     return MaterialApp(
       title: appName,
       theme: baseTheme,
+      home: const HomePage(),
       builder: (context, child) {
         return MediaQuery(
           data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
-          child: const HomePage(),
+          child: child ?? const Offstage(),
         );
       },
     );
