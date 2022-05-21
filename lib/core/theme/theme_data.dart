@@ -5,6 +5,7 @@ import 'theme_constant.dart';
 /// getter for theme app pet lovers
 ThemeData get baseTheme {
   return ThemeData(
+    unselectedWidgetColor: PLThemeConstant.unselectedColor,
     primaryColor: PLThemeConstant.pinkPrimary,
     primarySwatch: const MaterialColor(PLThemeConstant.pinkPrimaryInt, {
       50: PLThemeConstant.pinkPrimary,
@@ -24,6 +25,17 @@ ThemeData get baseTheme {
     cardTheme: _cardTheme,
     elevatedButtonTheme: _elevatedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
+    textButtonTheme: _textThemeButton,
+  );
+}
+
+TextButtonThemeData get _textThemeButton {
+  return TextButtonThemeData(
+    style: TextButton.styleFrom(
+      minimumSize: Size.zero,
+      padding: EdgeInsets.zero,
+      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+    ),
   );
 }
 
@@ -71,7 +83,7 @@ ElevatedButtonThemeData get _elevatedButtonTheme {
       backgroundColor: MaterialStateProperty.resolveWith(
         (states) {
           if (states.contains(MaterialState.disabled)) {
-            return PLThemeConstant.lightPrimary;
+            return PLThemeConstant.unselectedColor;
           }
 
           return PLThemeConstant.pinkPrimary;

@@ -12,3 +12,5 @@ const String addToCart = "assets/icons/add_to_cart.png";
 const String addToCartWhite = "assets/icons/add_to_cart_white.png";
 const String owlColorfull = "assets/icons/owl_colorfull.png";
 const String more = "assets/icons/more.png";
+const String locationGrey = "assets/icons/location.png";
+const String store = "assets/icons/store.png";

@@ -31,5 +31,7 @@ abstract class PLThemeConstant {
   static const Color blackPrimary = Color(0xff525252);
   static const Color lightPrimary = Color(0xffF8F8F8);
   static const Color yellowPrimary = Color(0xffE3BE3B);
+  static const Color yellowSecondary = Color(0xffFFD233);
   static const Color bluePrimary = Color(0xff5273E9);
+  static const Color unselectedColor = Color(0xffC4C4C4);
 }
