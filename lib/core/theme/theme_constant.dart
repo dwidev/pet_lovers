@@ -34,4 +34,12 @@ abstract class PLThemeConstant {
   static const Color yellowSecondary = Color(0xffFFD233);
   static const Color bluePrimary = Color(0xff5273E9);
   static const Color unselectedColor = Color(0xffC4C4C4);
+
+  // gradient
+  static const LinearGradient defaultGradient = LinearGradient(
+    colors: [
+      PLThemeConstant.pinkSecondary,
+      PLThemeConstant.pinkPrimary,
+    ],
+  );
 }
