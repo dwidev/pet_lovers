@@ -57,6 +57,13 @@ class PLButtonCircleWidget extends StatelessWidget {
         gradient: isGradientBackground && onPressed != null
             ? LinearGradient(colors: gradiendBackgroundColor)
             : null,
+        boxShadow: const [
+          BoxShadow(
+            color: PLThemeConstant.unselectedColor,
+            spreadRadius: 2,
+            blurRadius: 10,
+          )
+        ],
       ),
       child: ElevatedButton(
         onPressed: onPressed,

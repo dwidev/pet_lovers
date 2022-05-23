@@ -42,4 +42,23 @@ abstract class PLThemeConstant {
       PLThemeConstant.pinkPrimary,
     ],
   );
+
+  static const LinearGradient topToBottomGradient = LinearGradient(
+    colors: [
+      PLThemeConstant.pinkSecondary,
+      PLThemeConstant.pinkPrimary,
+    ],
+    begin: Alignment.topCenter,
+    end: Alignment.bottomCenter,
+  );
+}
+
+// function for get size
+Size getSize(BuildContext context) {
+  return MediaQuery.of(context).size;
+}
+
+// function for get text theme
+TextTheme textTheme(BuildContext context) {
+  return Theme.of(context).textTheme;
 }

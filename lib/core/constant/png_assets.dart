@@ -14,3 +14,6 @@ const String owlColorfull = "assets/icons/owl_colorfull.png";
 const String more = "assets/icons/more.png";
 const String locationGrey = "assets/icons/location.png";
 const String store = "assets/icons/store.png";
+const String loginOverlay = "assets/icons/login_background.png";
+const String fbIcon = "assets/icons/facebook.png";
+const String googleIcon = "assets/icons/google.png";
