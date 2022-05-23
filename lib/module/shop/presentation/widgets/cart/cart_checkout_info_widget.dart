@@ -1,6 +1,8 @@
 part of '../../page/cart/cart_page.dart';
 
 class CartCheckoutInfo extends StatelessWidget {
+  static const height = 130.0;
+
   const CartCheckoutInfo({
     Key? key,
   }) : super(key: key);

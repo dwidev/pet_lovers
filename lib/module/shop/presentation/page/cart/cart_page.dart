@@ -1,8 +1,10 @@
+import 'package:flutter_slidable/flutter_slidable.dart';
+
 import '../../../../../core/petlovers_core.dart';
 import '../../widgets/cart/cart_location_widget.dart';
 
-part '../../widgets/cart/cart_item_widget.dart';
 part '../../widgets/cart/cart_checkout_info_widget.dart';
+part '../../widgets/cart/cart_item_widget.dart';
 
 class CartPage extends StatefulWidget {
   const CartPage({Key? key}) : super(key: key);
@@ -30,11 +32,19 @@ class _CartPageState extends State<CartPage> {
             Expanded(
               child: Stack(
                 children: [
-                  ListView.builder(
-                    itemCount: 5,
-                    itemBuilder: (context, index) {
-                      return const CartItem();
-                    },
+                  Column(
+                    children: [
+                      Expanded(
+                        child: ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: 5,
+                          itemBuilder: (context, index) {
+                            return CartItem(index: index);
+                          },
+                        ),
+                      ),
+                      const SizedBox(height: CartCheckoutInfo.height),
+                    ],
                   ),
                   const CartCheckoutInfo(),
                 ],
