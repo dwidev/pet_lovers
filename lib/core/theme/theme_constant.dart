@@ -46,10 +46,16 @@ abstract class PLThemeConstant {
   static const LinearGradient topToBottomGradient = LinearGradient(
     colors: [
       PLThemeConstant.pinkSecondary,
-      PLThemeConstant.pinkPrimary,
+      PLThemeConstant.white,
     ],
     begin: Alignment.topCenter,
     end: Alignment.bottomCenter,
+  );
+
+  static const BoxShadow boxShadow = BoxShadow(
+    blurRadius: 10,
+    spreadRadius: 1,
+    color: unselectedColor,
   );
 }
 
@@ -59,6 +65,11 @@ Size getSize(BuildContext context) {
 }
 
 // function for get text theme
-TextTheme textTheme(BuildContext context) {
+TextTheme getTextTheme(BuildContext context) {
   return Theme.of(context).textTheme;
+}
+
+// function for get view padding
+EdgeInsets getViewPadding(BuildContext context) {
+  return MediaQuery.of(context).viewPadding;
 }

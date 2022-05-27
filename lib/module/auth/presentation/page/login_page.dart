@@ -1,8 +1,7 @@
-import 'package:pet_lovers/core/navigator/navigator.dart';
-import 'package:pet_lovers/module/home/presentations/page/home_page.dart';
-
+import '../../../../core/navigator/navigator.dart';
 import '../../../../core/petlovers_core.dart';
 import '../widgets/auth_text_field_widget.dart';
+import 'interest_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -52,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: [
                         Text(
                           "Masuk!",
-                          style: textTheme(context).bodyText1?.copyWith(
+                          style: getTextTheme(context).bodyText1?.copyWith(
                                 fontSize: 20,
                               ),
                         ),
@@ -71,7 +70,7 @@ class _LoginPageState extends State<LoginPage> {
                                   const TextSpan(text: "Lupa kata sandi?"),
                                   TextSpan(
                                     text: " Klik disini",
-                                    style: textTheme(context)
+                                    style: getTextTheme(context)
                                         .bodyText2
                                         ?.copyWith(
                                           fontWeight: FontWeight.bold,
@@ -104,7 +103,10 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             ElevatedButton(
                               onPressed: () {
-                                push(context: context, page: const HomePage());
+                                push(
+                                  context: context,
+                                  page: const InterestPage(),
+                                );
                               },
                               child: const Text("Masuk"),
                             )
