@@ -17,3 +17,7 @@ const String store = "assets/icons/store.png";
 const String loginOverlay = "assets/icons/login_background.png";
 const String fbIcon = "assets/icons/facebook.png";
 const String googleIcon = "assets/icons/google.png";
+const String rabbit = "assets/icons/rabbit.png";
+const String turtle = "assets/icons/turtle.png";
+const String hamster = "assets/icons/hamster.png";
+const String birdBlue = "assets/icons/bird_blue.png";
