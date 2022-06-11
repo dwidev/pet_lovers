@@ -66,130 +66,133 @@ class _InterestPageState extends State<InterestPage>
     final textTheme = getTextTheme(context);
 
     return Scaffold(
-      body: Column(
-        children: [
-          Container(
-            padding: EdgeInsets.only(top: viewPadding.top * 2),
-            width: size.width,
-            height: size.height,
-            decoration: const BoxDecoration(
-              gradient: PLThemeConstant.topToBottomGradient,
-            ),
-            child: Stack(
-              children: [
-                ...listIcon.map(
-                  (e) {
-                    final widthImage =
-                        double.parse(Random().nextInt(100).toString());
-                    final offsetx = double.parse(
-                        Random().nextInt(size.width.toInt()).toString());
-                    final offsety = double.parse(
-                        Random().nextInt(size.height.toInt()).toString());
-                    return Opacity(
-                      opacity: 1,
-                      // bottom: scorePosition,
-                      child: Transform.translate(
-                        offset: Offset(offsetx, offsety),
-                        child: Opacity(
-                          opacity: 0.5,
-                          child: Image.asset(
-                            e,
-                            width: widthImage < 70 ? 70 : widthImage,
-                          ),
-                        ),
+      body: Container(
+        padding: viewPadding * 1.5,
+        width: size.width,
+        height: size.height,
+        decoration: const BoxDecoration(
+          gradient: PLThemeConstant.topToBottomGradient,
+        ),
+        child: Stack(
+          children: [
+            ...listIcon.map(
+              (e) {
+                final widthImage =
+                    double.parse(Random().nextInt(100).toString());
+                final offsetx = double.parse(
+                    Random().nextInt(size.width.toInt()).toString());
+                final offsety = double.parse(
+                    Random().nextInt(size.height.toInt()).toString());
+                return Opacity(
+                  opacity: 1,
+                  // bottom: scorePosition,
+                  child: Transform.translate(
+                    offset: Offset(offsetx, offsety),
+                    child: Opacity(
+                      opacity: 0.5,
+                      child: Image.asset(
+                        e,
+                        width: widthImage < 70 ? 70 : widthImage,
                       ),
-                    );
-                  },
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      "Pilih hewan peliharaan mu!",
-                      style: textTheme.headline1?.copyWith(
+                    ),
+                  ),
+                );
+              },
+            ),
+            SingleChildScrollView(
+              child: Column(
+                children: [
+                  Text(
+                    "Pilih hewan peliharaan mu!",
+                    style: textTheme.headline1?.copyWith(
+                      color: PLThemeConstant.white,
+                    ),
+                  ),
+                  Container(
+                    width: size.width / 1.5,
+                    child: Text(
+                      "agar kami bisa memilihkan konten yang seuai untukmu",
+                      style: textTheme.bodyText2?.copyWith(
                         color: PLThemeConstant.white,
                       ),
+                      overflow: TextOverflow.clip,
+                      textAlign: TextAlign.center,
                     ),
-                    Container(
-                      width: size.width / 1.5,
-                      child: Text(
-                        "agar kami bisa memilihkan konten yang seuai untukmu",
-                        style: textTheme.bodyText2?.copyWith(
-                          color: PLThemeConstant.white,
-                        ),
-                        overflow: TextOverflow.clip,
-                        textAlign: TextAlign.center,
-                      ),
-                    ),
-                    const SizedBox(height: PLThemeConstant.sizeM),
-                    GridView.count(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
+                  ),
+                  const SizedBox(height: PLThemeConstant.sizeM),
+                  GridView(
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
-                      padding: const EdgeInsets.all(PLThemeConstant.sizeM),
-                      children: List.generate(12, (index) {
-                        final isMultiple3 = ((index + 1) % 3) == 0;
-                        final color = index == selected
-                            ? PLThemeConstant.pinkPrimary
-                            : Colors.white;
-                        final textColor = index != selected
-                            ? PLThemeConstant.pinkPrimary
-                            : Colors.white;
-                        return Container(
-                          margin: EdgeInsets.only(
-                            right: isMultiple3 ? 0 : 10,
-                            bottom: 15,
-                          ),
-                          width: (size.width / 3) - PLThemeConstant.sizeM,
-                          height: 100,
-                          decoration: BoxDecoration(
-                            borderRadius: PLThemeConstant.cardBorderRadius,
-                            boxShadow: const [PLThemeConstant.boxShadow],
-                          ),
-                          child: Material(
-                            color: color,
-                            clipBehavior: Clip.hardEdge,
-                            borderRadius: PLThemeConstant.cardBorderRadius,
-                            child: InkWell(
-                              onTap: () {
-                                setInterest(index);
-                              },
-                              child: Center(
-                                child: Text(
-                                  "Kucing",
-                                  style: textTheme.bodyText2?.copyWith(
-                                    fontSize: 20,
-                                    color: textColor,
-                                  ),
+                      childAspectRatio: 1.1,
+                    ),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: const EdgeInsets.all(PLThemeConstant.sizeM),
+                    children: List.generate(12, (index) {
+                      final isMultiple3 = ((index + 1) % 3) == 0;
+                      final color = index == selected
+                          ? PLThemeConstant.pinkPrimary
+                          : Colors.white;
+                      final textColor = index != selected
+                          ? PLThemeConstant.pinkPrimary
+                          : Colors.white;
+                      return Container(
+                        margin: EdgeInsets.only(
+                          right: isMultiple3 ? 0 : 10,
+                          bottom: 15,
+                        ),
+                        width: (size.width / 3) - PLThemeConstant.sizeM,
+                        height: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: PLThemeConstant.cardBorderRadius,
+                          boxShadow: const [PLThemeConstant.boxShadow],
+                        ),
+                        child: Material(
+                          color: color,
+                          clipBehavior: Clip.hardEdge,
+                          borderRadius: PLThemeConstant.cardBorderRadius,
+                          child: InkWell(
+                            onTap: () {
+                              setInterest(index);
+                            },
+                            child: Center(
+                              child: Text(
+                                "Kucing",
+                                overflow: TextOverflow.clip,
+                                textAlign: TextAlign.center,
+                                style: textTheme.bodyText2?.copyWith(
+                                  fontSize: 20,
+                                  color: textColor,
                                 ),
                               ),
                             ),
                           ),
-                        );
-                      }),
+                        ),
+                      );
+                    }),
+                  ),
+                  const SizedBox(height: PLThemeConstant.sizeS),
+                  ElevatedButton(
+                    onPressed: () {
+                      push(context: context, page: const HomePage());
+                    },
+                    child: const Text("Lanjut"),
+                  ),
+                  const SizedBox(height: PLThemeConstant.sizeS),
+                  TextButton(
+                    onPressed: () {},
+                    child: Text(
+                      "Lewati",
+                      style: textTheme.bodyText2,
                     ),
-                    const SizedBox(height: PLThemeConstant.sizeS),
-                    ElevatedButton(
-                      onPressed: () {
-                        push(context: context, page: const HomePage());
-                      },
-                      child: const Text("Lanjut"),
-                    ),
-                    const SizedBox(height: PLThemeConstant.sizeS),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Lewati",
-                        style: textTheme.bodyText2,
-                      ),
-                    ),
-                    const SizedBox(height: PLThemeConstant.sizeML),
-                  ],
-                ),
-              ],
+                  ),
+                  // const SizedBox(height: PLThemeConstant.sizeML),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
