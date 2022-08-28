@@ -1,7 +1,6 @@
 import 'package:pet_lovers/module/auth/presentation/page/login_page.dart';
 
 import 'core/petlovers_core.dart';
-import 'environment/env.dart';
 import 'module/home/presentations/page/home_page.dart';
 
 class PetLoversApp extends StatelessWidget {
@@ -9,7 +8,7 @@ class PetLoversApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: appName,
+      title: PetLoversEnvConfig.instance.appName,
       theme: baseTheme,
       home: const LoginPage(),
       builder: (context, child) {
