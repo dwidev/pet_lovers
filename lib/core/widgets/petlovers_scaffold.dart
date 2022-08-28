@@ -14,6 +14,7 @@ class PetLoversScaffold extends StatelessWidget {
     this.backgroundColor,
     this.appBarBackgroundColor,
     this.appBarBottom,
+    this.bottomFloating,
   }) : super(key: key);
 
   final String? title;
@@ -23,6 +24,7 @@ class PetLoversScaffold extends StatelessWidget {
   final Color? backgroundColor;
   final Color? appBarBackgroundColor;
   final PreferredSizeWidget? appBarBottom;
+  final Widget? bottomFloating;
 
   bool _capPop(BuildContext context) {
     final route = ModalRoute.of(context);
@@ -33,33 +35,44 @@ class PetLoversScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
-    return Scaffold(
-      backgroundColor: backgroundColor ?? PLThemeConstant.white,
-      appBar: AppBar(
-        elevation: 0,
-        centerTitle: _capPop(context) ? false : true,
-        backgroundColor: appBarBackgroundColor ?? PLThemeConstant.white,
-        bottom: appBarBottom,
-        leading: _capPop(context)
-            ? IconButton(
-                onPressed: () {
-                  pop(context: context);
-                },
-                icon: Image.asset(
-                  backPink,
-                  width: PLThemeConstant.sizeL,
-                ),
-              )
-            : null,
-        title: Text(
-          title ?? "",
-          textAlign: TextAlign.start,
-          style: _capPop(context) ? textTheme.headline1 : textTheme.bodyText2,
+    return WillPopScope(
+      onWillPop: onWillPop,
+      child: Scaffold(
+        backgroundColor: backgroundColor ?? PLThemeConstant.white,
+        appBar: AppBar(
+          elevation: 0,
+          centerTitle: _capPop(context) ? false : true,
+          backgroundColor: appBarBackgroundColor ?? PLThemeConstant.white,
+          bottom: appBarBottom,
+          leading: _capPop(context)
+              ? IconButton(
+                  onPressed: () {
+                    pop(context: context);
+                  },
+                  icon: Image.asset(
+                    backPink,
+                    width: PLThemeConstant.sizeL,
+                  ),
+                )
+              : null,
+          title: Text(
+            title ?? "",
+            textAlign: TextAlign.start,
+            style: _capPop(context) ? textTheme.headline1 : textTheme.bodyText2,
+          ),
         ),
-      ),
-      body: WillPopScope(
-        onWillPop: onWillPop,
-        child: body,
+        body: Stack(
+          children: [
+            body,
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Padding(
+                padding: const EdgeInsets.all(PLThemeConstant.sizeM),
+                child: bottomFloating ?? const Offstage(),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

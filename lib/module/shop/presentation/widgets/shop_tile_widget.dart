@@ -1,6 +1,5 @@
-import 'package:pet_lovers/module/home/presentations/page/home_page.dart';
-
 import '../../../../core/petlovers_core.dart';
+import '../page/product/detail_product_shop_page.dart';
 
 class ShopTileWidget extends StatelessWidget {
   const ShopTileWidget({Key? key}) : super(key: key);
@@ -22,7 +21,14 @@ class ShopTileWidget extends StatelessWidget {
           borderRadius: PLThemeConstant.cardBorderRadius,
           clipBehavior: Clip.hardEdge,
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              // openDetailProduct(context);
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => const DetailProductShop(),
+                ),
+              );
+            },
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

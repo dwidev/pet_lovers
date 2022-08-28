@@ -2,6 +2,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 
 import '../../../../../core/petlovers_core.dart';
 import '../../widgets/cart/cart_location_widget.dart';
+import '../../widgets/product/stock_widget.dart';
 
 part '../../widgets/cart/cart_checkout_info_widget.dart';
 part '../../widgets/cart/cart_item_widget.dart';
