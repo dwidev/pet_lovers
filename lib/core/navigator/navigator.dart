@@ -16,3 +16,12 @@ void pop({required BuildContext context, int count = 1}) {
   var c = count;
   Navigator.popUntil(context, (route) => c-- <= count);
 }
+
+/// To navigate to next page (Scaffold), then remove all previous page from stack.
+Future<void> pushAndRemoveAll({
+  required BuildContext context,
+  required Widget page,
+}) async {
+  final route = MaterialPageRoute(builder: (_) => page);
+  return Navigator.pushAndRemoveUntil<void>(context, route, (route) => false);
+}

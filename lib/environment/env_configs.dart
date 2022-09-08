@@ -55,7 +55,7 @@ class PetLoversEnvConfig {
     /// config environtment production value
     if (environment == PetLoversEnvironment.production) {
       return PetLoversEnvConfig(
-        baseUrl: "https://petlovers.com/api/v1/",
+        baseUrl: "https://api-prod.petlove.com/petlove/api/v1",
         appName: "PetLovers",
       );
     }
@@ -63,7 +63,7 @@ class PetLoversEnvConfig {
     /// config environtment staging value
     if (environment == PetLoversEnvironment.staging) {
       return PetLoversEnvConfig(
-        baseUrl: "https://petlovers.com/api/v1/",
+        baseUrl: "https://api-staging.petlove.com/petlove/api/v1",
         appName: "PetLovers staging",
       );
     }
@@ -71,11 +71,11 @@ class PetLoversEnvConfig {
     /// config environtment uat value
     if (environment == PetLoversEnvironment.uat) {
       return PetLoversEnvConfig(
-        baseUrl: "https://petlovers.com/api/v1/",
+        baseUrl: "http://localhost:3000/petlove/api/v1",
         appName: "PetLovers UAT",
       );
     }
 
-    throw FlutterError("environment not match in [PetLoversEnvironment]");
+    throw FlutterError("$environment not match in [PetLoversEnvironment]");
   }
 }

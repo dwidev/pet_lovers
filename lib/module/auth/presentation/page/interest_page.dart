@@ -175,7 +175,8 @@ class _InterestPageState extends State<InterestPage>
                   const SizedBox(height: PLThemeConstant.sizeS),
                   ElevatedButton(
                     onPressed: () {
-                      push(context: context, page: const HomePage());
+                      pushAndRemoveAll(
+                          context: context, page: const HomePage());
                     },
                     child: const Text("Lanjut"),
                   ),

@@ -3,7 +3,12 @@ import '../../../../core/petlovers_core.dart';
 class AuthTextInput extends StatelessWidget {
   const AuthTextInput({
     Key? key,
+    required this.controller,
+    this.isSecure = false,
   }) : super(key: key);
+
+  final TextEditingController controller;
+  final bool isSecure;
 
   @override
   Widget build(BuildContext context) {
@@ -18,6 +23,8 @@ class AuthTextInput extends StatelessWidget {
         ],
       ),
       child: TextFormField(
+        controller: controller,
+        obscureText: isSecure,
         decoration: const InputDecoration(
           hintText: "Username",
         ),

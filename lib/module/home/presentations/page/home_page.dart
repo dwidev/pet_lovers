@@ -35,14 +35,14 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         centerTitle: true,
         backgroundColor: PLThemeConstant.white,
-        leading: IconButton(
-          onPressed: () {},
-          icon: Image.asset(
-            homeMenu,
-            width: 30,
-            height: 30,
-          ),
-        ),
+        // leading: IconButton(
+        //   onPressed: () {},
+        //   icon: Image.asset(
+        //     homeMenu,
+        //     width: 30,
+        //     height: 30,
+        //   ),
+        // ),
         title: Text(
           "Fahmi dwi syahputra",
           style: textTheme.bodyText2,
