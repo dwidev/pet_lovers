@@ -1,4 +1,5 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pet_lovers/module/home/presentations/page/home_page.dart';
 
 import 'core/base/providers/logger_provider.dart';
 import 'core/petlovers_core.dart';
@@ -13,7 +14,7 @@ class PetLoversApp extends StatelessWidget {
       child: MaterialApp(
         title: PetLoversEnvConfig.instance.appName,
         theme: baseTheme,
-        home: const SplashPage(),
+        home: const HomePage(),
         builder: (context, child) {
           return MediaQuery(
             data: MediaQuery.of(context).copyWith(textScaleFactor: 1),

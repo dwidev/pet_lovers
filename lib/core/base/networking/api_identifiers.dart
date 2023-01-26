@@ -12,3 +12,8 @@ class AuthIdentifiers extends EndpointIdentifiers {
   @override
   String get baseUrl => '$_base/auth';
 }
+
+class MasterDataIdentifiers extends EndpointIdentifiers {
+  @override
+  String get baseUrl => '$_base/masterdata';
+}

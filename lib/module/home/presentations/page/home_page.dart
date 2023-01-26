@@ -1,15 +1,21 @@
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:pet_lovers/core/base/local_storage/token_storage.dart';
+import 'package:pet_lovers/core/base/networking/dio.dart';
 import 'package:pet_lovers/core/navigator/navigator.dart';
+import 'package:pet_lovers/module/auth/presentation/page/login_page.dart';
+import 'package:pet_lovers/module/auth/presentation/page/splash_page.dart';
 import 'package:pet_lovers/module/shop/presentation/page/cart/cart_page.dart';
 import 'package:pet_lovers/module/shop/presentation/widgets/shop_tile_widget.dart';
 
 import '../../../../core/petlovers_core.dart';
 import '../../../adopt/presentation/widgets/adopt_tile_widget.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
+  ConsumerState<HomePage> createState() => _HomePageState();
 }
 
 const profileSourceDummy =
@@ -17,7 +23,7 @@ const profileSourceDummy =
 const catDummyImage =
     "https://www.lyceum.id/wp-content/uploads/2021/01/images-71.jpeg";
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends ConsumerState<HomePage> {
   final listCat = [
     catCollorfull,
     dogColorfull,
@@ -35,14 +41,18 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
         centerTitle: true,
         backgroundColor: PLThemeConstant.white,
-        // leading: IconButton(
-        //   onPressed: () {},
-        //   icon: Image.asset(
-        //     homeMenu,
-        //     width: 30,
-        //     height: 30,
-        //   ),
-        // ),
+        leading: IconButton(
+          onPressed: () {
+            TokenStorage(localStorage: const FlutterSecureStorage())
+                .deleteAll();
+            pushAndRemoveAll(context: context, page: const SplashPage());
+          },
+          icon: Image.asset(
+            homeMenu,
+            width: 30,
+            height: 30,
+          ),
+        ),
         title: Text(
           "Fahmi dwi syahputra",
           style: textTheme.bodyText2,

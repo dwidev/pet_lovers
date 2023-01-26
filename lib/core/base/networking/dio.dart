@@ -1,7 +1,7 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:pet_lovers/core/base/local_storage/token_storage.dart';
 
+import '../local_storage/token_storage.dart';
 import 'api_identifiers.dart';
 import 'api_interceptors.dart';
 
@@ -33,3 +33,9 @@ final authHttpRequest = Provider.autoDispose<Dio>((ref) {
   final params = MyDioParams(AuthIdentifiers());
   return ref.watch(_baseDio(params));
 }, name: "authHttpRequest");
+
+/// dio for master data api
+final masterDataHttpRequest = Provider.autoDispose<Dio>((ref) {
+  final params = MyDioParams(MasterDataIdentifiers());
+  return ref.watch(_baseDio(params));
+}, name: "masterDataHttpRequest");
