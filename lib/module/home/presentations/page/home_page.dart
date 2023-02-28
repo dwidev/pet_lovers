@@ -54,7 +54,7 @@ class _HomePageState extends ConsumerState<HomePage> {
         ),
         title: Text(
           "Fahmi dwi syahputra",
-          style: textTheme.bodyText2,
+          style: textTheme.bodyMedium,
         ),
         actions: [
           IconButton(
@@ -81,7 +81,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                 padding: const EdgeInsets.all(PLThemeConstant.sizeM),
                 child: Text(
                   "Selamat datang Pet Lovers!!",
-                  style: textTheme.headline1,
+                  style: textTheme.bodyLarge,
                   overflow: TextOverflow.clip,
                 ),
               ),
@@ -122,13 +122,13 @@ class _HomePageState extends ConsumerState<HomePage> {
                       children: [
                         Text(
                           "Open adopt",
-                          style: textTheme.bodyText1,
+                          style: textTheme.bodyLarge,
                         ),
                         TextButton(
                           onPressed: () {},
                           child: Text(
                             "lihat semua",
-                            style: textTheme.caption,
+                            style: textTheme.bodySmall,
                           ),
                         ),
                       ],
@@ -151,7 +151,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                       children: [
                         Text(
                           "Shop",
-                          style: textTheme.bodyText1,
+                          style: textTheme.bodyLarge,
                         ),
                         TextButton(
                           onPressed: () {
@@ -162,7 +162,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                           },
                           child: Text(
                             "lihat semua",
-                            style: textTheme.caption,
+                            style: textTheme.bodySmall,
                           ),
                         ),
                       ],
@@ -186,13 +186,13 @@ class _HomePageState extends ConsumerState<HomePage> {
                       children: [
                         Text(
                           "Timeline",
-                          style: textTheme.bodyText1,
+                          style: textTheme.bodyLarge,
                         ),
                         TextButton(
                           onPressed: () {},
                           child: Text(
                             "lihat semua",
-                            style: textTheme.caption,
+                            style: textTheme.bodySmall,
                           ),
                         ),
                       ],
@@ -239,7 +239,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                             children: [
                                               Text(
                                                 "Fahmi Dwi S",
-                                                style: textTheme.bodyText1,
+                                                style: textTheme.bodyLarge,
                                               ),
                                               const Text(
                                                 "20 Feb 2020 19:00 WIB",
@@ -261,7 +261,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                     children: [
                                       Text(
                                         "#ask",
-                                        style: textTheme.bodyText2?.copyWith(
+                                        style: textTheme.bodyMedium?.copyWith(
                                             color: PLThemeConstant.bluePrimary),
                                       ),
                                       const Text(
@@ -320,7 +320,7 @@ class _HomePageState extends ConsumerState<HomePage> {
                                                   ),
                                                   Text(
                                                     "+ 2",
-                                                    style: textTheme.bodyText2
+                                                    style: textTheme.bodyMedium
                                                         ?.copyWith(
                                                       fontSize: 23,
                                                       color: Colors.white,

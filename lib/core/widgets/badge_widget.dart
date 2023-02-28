@@ -42,7 +42,7 @@ class BadgeWidget extends StatelessWidget {
             child: Text(
               title,
               style: textTheme ??
-                  sTextTheme.caption?.copyWith(
+                  sTextTheme.bodySmall?.copyWith(
                     color: index == 0
                         ? Colors.white
                         : PLThemeConstant.pinkSecondary,

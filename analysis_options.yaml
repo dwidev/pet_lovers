@@ -6,7 +6,7 @@ analyzer:
     - "**/*.gr.dart"
     - "**/*.freezed.dart"
     - "**/*.config.dart"
-    
+
   strong-mode:
     implicit-casts: true
     implicit-dynamic: true
@@ -48,7 +48,7 @@ analyzer:
 
     # In this project doesn't need String Buffer.
     use_string_buffers: ignore
-    
+
 linter:
   rules:
     # First world problem.
@@ -74,10 +74,6 @@ linter:
     # Conflicts with the convention used by flutter, which puts `Key key`
     # and `@required Widget child` last.
     always_put_required_named_parameters_first: false
-
-    # `as` is not that bad (especially with the upcoming non-nullable types).
-    # Explicit exceptions is better than implicit exceptions.
-    avoid_as: false
 
     # There are situations where we voluntarily want to catch everything,
     # especially as a library.
@@ -118,7 +114,7 @@ linter:
     # It's better to give print in failure message.
     avoid_print: false
 
-    # Sometime, you need to cache first 
+    # Sometime, you need to cache first
     # the return value to use it later.
     join_return_with_assignment: false
 

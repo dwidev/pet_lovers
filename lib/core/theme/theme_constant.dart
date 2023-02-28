@@ -37,14 +37,14 @@ abstract class PLThemeConstant {
   static const Color unselectedColor = Color(0xffC4C4C4);
 
   // gradient
-  static const LinearGradient defaultGradient = LinearGradient(
+  static LinearGradient defaultGradient = const LinearGradient(
     colors: [
       PLThemeConstant.pinkSecondary,
       PLThemeConstant.pinkPrimary,
     ],
   );
 
-  static const LinearGradient topToBottomGradient = LinearGradient(
+  static LinearGradient topToBottomGradient = const LinearGradient(
     colors: [
       PLThemeConstant.pinkSecondary,
       PLThemeConstant.white,
@@ -53,7 +53,7 @@ abstract class PLThemeConstant {
     end: Alignment.bottomCenter,
   );
 
-  static const BoxShadow boxShadow = BoxShadow(
+  static BoxShadow boxShadow = const BoxShadow(
     blurRadius: 10,
     spreadRadius: 1,
     color: unselectedColor,

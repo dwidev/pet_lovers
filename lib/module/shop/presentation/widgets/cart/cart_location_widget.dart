@@ -28,7 +28,7 @@ class CartLocationWidget extends StatelessWidget {
                 const TextSpan(text: "Dikirim ke"),
                 TextSpan(
                   text: " $location",
-                  style: textTheme.bodyText2?.copyWith(
+                  style: textTheme.bodyMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
                 ),

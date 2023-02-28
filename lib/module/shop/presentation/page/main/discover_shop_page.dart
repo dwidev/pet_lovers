@@ -26,8 +26,6 @@ class DiscoverShopPage extends StatefulWidget {
 class _DiscoverShopPageState extends State<DiscoverShopPage> {
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
-
     return PetLoversScaffold(
       backgroundColor: PLThemeConstant.lightPrimary,
       withSearchBar: true,

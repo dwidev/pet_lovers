@@ -113,7 +113,7 @@ class ShopTileWidget extends StatelessWidget {
                     children: [
                       Text(
                         "Royal canin",
-                        style: textTheme.bodyText1,
+                        style: textTheme.bodyLarge,
                         maxLines: 1,
                       ),
                       const Text(
@@ -128,7 +128,7 @@ class ShopTileWidget extends StatelessWidget {
                               children: <TextSpan>[
                                 TextSpan(
                                   text: '20K',
-                                  style: textTheme.bodyText2?.copyWith(
+                                  style: textTheme.bodyMedium?.copyWith(
                                     color: PLThemeConstant.pinkPrimary
                                         .withOpacity(0.5),
                                     fontSize: 15,
@@ -137,7 +137,8 @@ class ShopTileWidget extends StatelessWidget {
                                   ),
                                 ),
                                 TextSpan(
-                                    text: ' 45K', style: textTheme.headline1),
+                                    text: ' 45K',
+                                    style: textTheme.displayLarge),
                               ],
                             ),
                           ),
@@ -175,10 +176,10 @@ class ShopTileWidget extends StatelessWidget {
                                 color: PLThemeConstant.yellowPrimary,
                                 size: 20,
                               ),
-                              Text("4.5", style: textTheme.bodyText2),
+                              Text("4.5", style: textTheme.bodyMedium),
                             ],
                           ),
-                          Text("Terjual 25", style: textTheme.bodyText2),
+                          Text("Terjual 25", style: textTheme.bodyMedium),
                         ],
                       ),
                       if (hideFlashSale == false && index == 0) ...{

@@ -96,25 +96,25 @@ ElevatedButtonThemeData get _elevatedButtonTheme {
 /// getters for text theme global
 TextTheme get _textTheme {
   return const TextTheme(
-    headline1: TextStyle(
+    displayLarge: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
       fontSize: 20,
       fontWeight: FontWeight.bold,
     ),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
       fontSize: 13,
       fontWeight: FontWeight.bold,
     ),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
       fontSize: 12,
       fontWeight: FontWeight.normal,
     ),
-    caption: TextStyle(
+    bodySmall: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
       fontSize: 11,

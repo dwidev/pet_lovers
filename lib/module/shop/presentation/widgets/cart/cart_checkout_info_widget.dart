@@ -49,7 +49,7 @@ class CartCheckoutInfo extends StatelessWidget {
                     ),
                     Text(
                       "Semua",
-                      style: textTheme.bodyText1,
+                      style: textTheme.bodyLarge,
                     ),
                   ],
                 ),
@@ -58,13 +58,13 @@ class CartCheckoutInfo extends StatelessWidget {
                   children: [
                     Text(
                       "Voucher",
-                      style: textTheme.bodyText1,
+                      style: textTheme.bodyLarge,
                     ),
                     TextButton(
                       onPressed: () {},
                       child: Text(
                         "Cari voucher anda/ Masukan kode",
-                        style: textTheme.bodyText2,
+                        style: textTheme.bodyMedium,
                       ),
                     ),
                   ],
@@ -79,11 +79,11 @@ class CartCheckoutInfo extends StatelessWidget {
                 Text.rich(TextSpan(children: [
                   TextSpan(
                     text: "Total",
-                    style: textTheme.bodyText1,
+                    style: textTheme.bodyLarge,
                   ),
                   TextSpan(
                     text: " Rp. 45000",
-                    style: textTheme.headline1
+                    style: textTheme.displayLarge
                         ?.copyWith(color: PLThemeConstant.yellowSecondary),
                   ),
                 ])),

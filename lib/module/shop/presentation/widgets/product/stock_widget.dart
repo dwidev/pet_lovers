@@ -21,7 +21,7 @@ class StockWidget extends StatelessWidget {
         ),
         Text(
           "10",
-          style: textTheme.bodyText1?.copyWith(
+          style: textTheme.bodyLarge?.copyWith(
             fontSize: PLThemeConstant.sizeM,
           ),
         ),

@@ -54,7 +54,7 @@ class AdoptTileWidget extends StatelessWidget {
                     children: [
                       Text(
                         "Persia",
-                        style: textTheme.bodyText1,
+                        style: textTheme.bodyLarge,
                         maxLines: 1,
                       ),
                       const Text(
@@ -63,7 +63,7 @@ class AdoptTileWidget extends StatelessWidget {
                       ),
                       Text(
                         "500k",
-                        style: textTheme.headline1,
+                        style: textTheme.displayLarge,
                       ),
                       const SizedBox(
                         height: PLThemeConstant.sizeS,

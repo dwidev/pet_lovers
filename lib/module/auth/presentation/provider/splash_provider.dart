@@ -27,7 +27,7 @@ class SplashProvider extends StateNotifier<AsyncValue<AuthenticationStatus>> {
         state = AsyncData(data);
       },
       error: (e, s) {
-        state = AsyncError(e, stackTrace: s);
+        state = AsyncError(e, s);
       },
     );
   }

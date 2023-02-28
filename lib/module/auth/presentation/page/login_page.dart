@@ -64,7 +64,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
       body: Container(
         width: size.width,
         height: size.height,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: PLThemeConstant.topToBottomGradient,
         ),
         child: Stack(
@@ -98,7 +98,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                         children: [
                           Text(
                             "Masuk!",
-                            style: getTextTheme(context).bodyText1?.copyWith(
+                            style: getTextTheme(context).bodyLarge?.copyWith(
                                   fontSize: 20,
                                 ),
                           ),
@@ -123,7 +123,7 @@ class _LoginPageState extends ConsumerState<LoginPage> {
                                     TextSpan(
                                       text: " Klik disini",
                                       style: getTextTheme(context)
-                                          .bodyText2
+                                          .bodyMedium
                                           ?.copyWith(
                                             fontWeight: FontWeight.bold,
                                             color: PLThemeConstant.pinkPrimary,

@@ -32,14 +32,14 @@ class DetailProductShopBottomButtonWidget extends StatelessWidget {
                   children: [
                     TextSpan(
                       text: "53k",
-                      style: textTheme.headline1?.copyWith(
+                      style: textTheme.displayLarge?.copyWith(
                         color: Colors.yellow,
                         fontSize: 30,
                       ),
                     ),
                     TextSpan(
                       text: " Bayar",
-                      style: textTheme.headline1?.copyWith(
+                      style: textTheme.displayLarge?.copyWith(
                         color: Colors.white,
                       ),
                     ),

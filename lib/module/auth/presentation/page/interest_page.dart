@@ -70,7 +70,7 @@ class _InterestPageState extends State<InterestPage>
         padding: viewPadding * 1.5,
         width: size.width,
         height: size.height,
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
           gradient: PLThemeConstant.topToBottomGradient,
         ),
         child: Stack(
@@ -104,7 +104,7 @@ class _InterestPageState extends State<InterestPage>
                 children: [
                   Text(
                     "Pilih hewan peliharaan mu!",
-                    style: textTheme.headline1?.copyWith(
+                    style: textTheme.displayLarge?.copyWith(
                       color: PLThemeConstant.white,
                     ),
                   ),
@@ -112,7 +112,7 @@ class _InterestPageState extends State<InterestPage>
                     width: size.width / 1.5,
                     child: Text(
                       "agar kami bisa memilihkan konten yang seuai untukmu",
-                      style: textTheme.bodyText2?.copyWith(
+                      style: textTheme.displayLarge?.copyWith(
                         color: PLThemeConstant.white,
                       ),
                       overflow: TextOverflow.clip,
@@ -146,7 +146,7 @@ class _InterestPageState extends State<InterestPage>
                         height: 100,
                         decoration: BoxDecoration(
                           borderRadius: PLThemeConstant.cardBorderRadius,
-                          boxShadow: const [PLThemeConstant.boxShadow],
+                          boxShadow: [PLThemeConstant.boxShadow],
                         ),
                         child: Material(
                           color: color,
@@ -161,7 +161,7 @@ class _InterestPageState extends State<InterestPage>
                                 "Kucing",
                                 overflow: TextOverflow.clip,
                                 textAlign: TextAlign.center,
-                                style: textTheme.bodyText2?.copyWith(
+                                style: textTheme.bodyMedium?.copyWith(
                                   fontSize: 20,
                                   color: textColor,
                                 ),
@@ -185,7 +185,7 @@ class _InterestPageState extends State<InterestPage>
                     onPressed: () {},
                     child: Text(
                       "Lewati",
-                      style: textTheme.bodyText2,
+                      style: textTheme.bodyMedium,
                     ),
                   ),
                   // const SizedBox(height: PLThemeConstant.sizeML),

@@ -18,13 +18,13 @@ class MasterDataModel {
 
   factory MasterDataModel.fromMap(Map<String, dynamic> map) {
     return MasterDataModel(
-      code: map['code'] as String,
-      name: map['name'] as String,
+      code: map['code'],
+      name: map['name'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
   factory MasterDataModel.fromJson(String source) =>
-      MasterDataModel.fromMap(json.decode(source) as Map<String, dynamic>);
+      MasterDataModel.fromMap(json.decode(source));
 }

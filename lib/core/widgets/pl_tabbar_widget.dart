@@ -38,7 +38,7 @@ class PLTabBarWidget extends StatelessWidget {
                           child: PLGradientText(
                             listTabBar[key],
                             disable: selectedIndex != key,
-                            style: textTheme.headline1?.copyWith(
+                            style: textTheme.displayLarge?.copyWith(
                                 color: selectedIndex != key
                                     ? PLThemeConstant.unselectedColor
                                     : null),

@@ -85,7 +85,7 @@ class PetLoversScaffold extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: PLThemeConstant.cardBorderRadius,
                         color: Colors.white,
-                        boxShadow: const [
+                        boxShadow: [
                           PLThemeConstant.boxShadow,
                         ],
                       ),
@@ -98,8 +98,8 @@ class PetLoversScaffold extends StatelessWidget {
                   title ?? "",
                   textAlign: TextAlign.start,
                   style: _capPop(context)
-                      ? textTheme.headline1
-                      : textTheme.bodyText2,
+                      ? textTheme.displayLarge
+                      : textTheme.bodyMedium,
                 ),
         ),
         body: Stack(

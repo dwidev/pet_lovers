@@ -51,6 +51,14 @@ class PLButtonCircleWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final primary = isGradientBackground ? Colors.transparent : backgroundColor;
 
+    final child = icon is IconData
+        ? Icon(
+            icon,
+            size: buttonSize / 2,
+            color: iconColor,
+          )
+        : Image.asset(icon);
+
     return Container(
       width: buttonSize,
       height: buttonSize,
@@ -61,10 +69,9 @@ class PLButtonCircleWidget extends StatelessWidget {
             : null,
         boxShadow: noShadow
             ? null
-            : const [
-                BoxShadow(
+            : [
+                const BoxShadow(
                   color: PLThemeConstant.unselectedColor,
-                  spreadRadius: 0,
                   blurRadius: 10,
                   offset: Offset(-2, 2),
                 )
@@ -74,17 +81,11 @@ class PLButtonCircleWidget extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           shadowColor: Colors.transparent,
-          primary: primary,
+          backgroundColor: primary,
           shape: const CircleBorder(),
           padding: EdgeInsets.all(buttonSize / 4),
         ),
-        child: icon is IconData
-            ? Icon(
-                icon as IconData,
-                size: buttonSize / 2,
-                color: iconColor,
-              )
-            : Image.asset(icon),
+        child: child,
       ),
     );
   }

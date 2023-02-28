@@ -5,7 +5,7 @@ abstract class BaseUsecase<ResponseType, ParamsType> {
     try {
       return await processCall(params);
     } catch (e, s) {
-      return AsyncValue.error(e, stackTrace: s);
+      return AsyncValue.error(e, s);
     }
   }
 

@@ -17,11 +17,11 @@ class CustomeButtonWidget extends StatelessWidget {
       decoration: BoxDecoration(
         gradient: PLThemeConstant.defaultGradient,
         borderRadius: BorderRadius.circular(PLThemeConstant.radius),
-        boxShadow: const [PLThemeConstant.boxShadow],
+        boxShadow: [PLThemeConstant.boxShadow],
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: Colors.transparent,
+          foregroundColor: Colors.transparent,
         ),
         onPressed: onPressed,
         child: child,

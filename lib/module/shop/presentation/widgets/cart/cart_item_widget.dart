@@ -32,7 +32,7 @@ class CartItem extends StatelessWidget {
               const SizedBox(width: PLThemeConstant.sizeSS),
               Text(
                 "Dwi pet care",
-                style: textTheme.bodyText2?.copyWith(
+                style: textTheme.bodyMedium?.copyWith(
                   fontWeight: FontWeight.bold,
                 ),
               ),
@@ -53,7 +53,7 @@ class CartItem extends StatelessWidget {
                     children: [
                       Expanded(
                         child: Container(
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                             gradient: PLThemeConstant.defaultGradient,
                           ),
                           child: const Center(
@@ -104,7 +104,7 @@ class CartItem extends StatelessWidget {
                                   children: [
                                     Text(
                                       "Whiskas",
-                                      style: textTheme.bodyText1,
+                                      style: textTheme.bodyLarge,
                                     ),
                                     Row(
                                       children: [
@@ -131,7 +131,7 @@ class CartItem extends StatelessWidget {
                           margin: const EdgeInsets.only(right: 5),
                           child: Text(
                             "43K",
-                            style: textTheme.headline1,
+                            style: textTheme.displayLarge,
                           ),
                         ),
                       ],

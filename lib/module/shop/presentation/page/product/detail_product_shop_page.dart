@@ -307,7 +307,8 @@ class DetailProductShop extends StatelessWidget {
                         Flexible(
                           child: Text(
                             "Whiskas",
-                            style: textTheme.headline1?.copyWith(fontSize: 25),
+                            style:
+                                textTheme.displayLarge?.copyWith(fontSize: 25),
                             overflow: TextOverflow.clip,
                           ),
                         ),
@@ -326,13 +327,13 @@ class DetailProductShop extends StatelessWidget {
                                   children: [
                                     TextSpan(
                                       text: "4.5",
-                                      style: textTheme.bodyText2?.copyWith(
+                                      style: textTheme.bodyMedium?.copyWith(
                                         fontWeight: FontWeight.w800,
                                       ),
                                     ),
                                     TextSpan(
                                       text: "/5",
-                                      style: textTheme.bodyText2?.copyWith(
+                                      style: textTheme.bodyMedium?.copyWith(
                                         color: PLThemeConstant.unselectedColor,
                                       ),
                                     ),
@@ -347,13 +348,13 @@ class DetailProductShop extends StatelessWidget {
                                   children: [
                                     TextSpan(
                                       text: "1809",
-                                      style: textTheme.bodyText2?.copyWith(
+                                      style: textTheme.bodyMedium?.copyWith(
                                         fontWeight: FontWeight.w800,
                                       ),
                                     ),
                                     TextSpan(
                                       text: " terjual",
-                                      style: textTheme.bodyText2?.copyWith(
+                                      style: textTheme.bodyMedium?.copyWith(
                                         color: PLThemeConstant.unselectedColor,
                                       ),
                                     ),
@@ -383,7 +384,7 @@ class DetailProductShop extends StatelessWidget {
                       children: [
                         Text(
                           "Opsi",
-                          style: textTheme.bodyText1,
+                          style: textTheme.bodyLarge,
                           overflow: TextOverflow.clip,
                         ),
                         const SizedBox(width: PLThemeConstant.sizeS),
@@ -391,7 +392,7 @@ class DetailProductShop extends StatelessWidget {
                           children: [
                             Text(
                               "900gr",
-                              style: textTheme.caption,
+                              style: textTheme.bodySmall,
                               overflow: TextOverflow.clip,
                             ),
                             const Icon(
@@ -422,7 +423,7 @@ class DetailProductShop extends StatelessWidget {
                               ),
                               borderRadius: BorderRadius.circular(2),
                               image: const DecorationImage(
-                                image: const NetworkImage(dummyShop),
+                                image: NetworkImage(dummyShop),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -445,13 +446,13 @@ class DetailProductShop extends StatelessWidget {
                     const SizedBox(height: PLThemeConstant.sizeSS),
                     Text(
                       "Deskripsi",
-                      style: textTheme.bodyText1,
+                      style: textTheme.bodyLarge,
                       overflow: TextOverflow.clip,
                     ),
                     const SizedBox(height: PLThemeConstant.sizeM),
                     Text(
                       "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, \n\n Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
-                      style: textTheme.bodyText2,
+                      style: textTheme.bodyMedium,
                       overflow: TextOverflow.clip,
                     ),
                   ],
@@ -473,14 +474,14 @@ class DetailProductShop extends StatelessWidget {
                       children: [
                         Text(
                           "Pengiriman",
-                          style: textTheme.bodyText1,
+                          style: textTheme.bodyLarge,
                           overflow: TextOverflow.clip,
                         ),
                         Row(
                           children: [
                             Text(
                               "Rp15.000",
-                              style: textTheme.caption?.copyWith(
+                              style: textTheme.bodySmall?.copyWith(
                                 decoration: TextDecoration.lineThrough,
                               ),
                               overflow: TextOverflow.clip,
@@ -490,7 +491,7 @@ class DetailProductShop extends StatelessWidget {
                               noShadow: true,
                               backgroundColor: PLThemeConstant.pinkSecondary,
                               borderRadius: BorderRadius.circular(2),
-                              textTheme: textTheme.caption?.copyWith(
+                              textTheme: textTheme.bodySmall?.copyWith(
                                 color: PLThemeConstant.white,
                                 fontStyle: FontStyle.italic,
                               ),
@@ -507,13 +508,13 @@ class DetailProductShop extends StatelessWidget {
                     const SizedBox(height: PLThemeConstant.sizeM),
                     Text(
                       "Diskon ongkir Rp25rb minimal pembelian 20+, Diskon ongkir Rp30rb minimal pembelian 50Rb+",
-                      style: textTheme.bodyText2,
+                      style: textTheme.bodyMedium,
                       overflow: TextOverflow.clip,
                     ),
                     const SizedBox(height: PLThemeConstant.sizeSS),
                     Text(
                       "Dari Jakarta Kota ke Kabupaten Bogor (perkiraan sampai 1 - 2 Hari )",
-                      style: textTheme.bodyText2,
+                      style: textTheme.bodyMedium,
                       overflow: TextOverflow.clip,
                     ),
                   ],
@@ -546,7 +547,7 @@ class DetailProductShop extends StatelessWidget {
                               children: [
                                 Text(
                                   "PetShop Keluarga",
-                                  style: textTheme.bodyText1,
+                                  style: textTheme.bodyLarge,
                                   overflow: TextOverflow.clip,
                                 ),
                                 Row(
@@ -556,12 +557,12 @@ class DetailProductShop extends StatelessWidget {
                                       color: PLThemeConstant.yellowPrimary,
                                       size: 15,
                                     ),
-                                    Text("4.5", style: textTheme.bodyText2),
+                                    Text("4.5", style: textTheme.bodyMedium),
                                     const SizedBox(
                                       width: PLThemeConstant.sizeSS,
                                     ),
                                     Text("100 Items",
-                                        style: textTheme.bodyText2),
+                                        style: textTheme.bodyMedium),
                                   ],
                                 ),
                               ],
@@ -591,7 +592,7 @@ class DetailProductShop extends StatelessWidget {
                       children: [
                         Text(
                           "Ulasan pengguna (1032)",
-                          style: textTheme.bodyText1,
+                          style: textTheme.bodyLarge,
                           overflow: TextOverflow.clip,
                         ),
                         const SizedBox(width: PLThemeConstant.sizeS),
@@ -599,7 +600,7 @@ class DetailProductShop extends StatelessWidget {
                           children: [
                             Text(
                               "Lihat lainnya",
-                              style: textTheme.caption,
+                              style: textTheme.bodySmall,
                               overflow: TextOverflow.clip,
                             ),
                             const Icon(
@@ -630,13 +631,13 @@ class DetailProductShop extends StatelessWidget {
                                 children: [
                                   Text(
                                     "Fahmi dwi s",
-                                    style: textTheme.bodyText1,
+                                    style: textTheme.bodyLarge,
                                     overflow: TextOverflow.clip,
                                   ),
                                   const SizedBox(width: PLThemeConstant.sizeSS),
                                   Text(
                                     "17/04/2023 - 17:05",
-                                    style: textTheme.caption,
+                                    style: textTheme.bodySmall,
                                     overflow: TextOverflow.clip,
                                   ),
                                 ],
@@ -654,7 +655,7 @@ class DetailProductShop extends StatelessWidget {
                               const SizedBox(height: PLThemeConstant.sizeMS),
                               Text(
                                 "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
-                                style: textTheme.bodyText2,
+                                style: textTheme.bodyMedium,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
                               ),
@@ -684,7 +685,7 @@ class DetailProductShop extends StatelessWidget {
                                               alignment: Alignment.center,
                                               child: Text(
                                                 "+3",
-                                                style: textTheme.bodyText2
+                                                style: textTheme.bodyMedium
                                                     ?.copyWith(
                                                   color: Colors.white,
                                                 ),

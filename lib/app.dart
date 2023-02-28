@@ -3,7 +3,6 @@ import 'package:pet_lovers/module/home/presentations/page/home_page.dart';
 
 import 'core/base/providers/logger_provider.dart';
 import 'core/petlovers_core.dart';
-import 'module/auth/presentation/page/splash_page.dart';
 
 class PetLoversApp extends StatelessWidget {
   // This widget is the root of your application.
