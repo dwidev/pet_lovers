@@ -8,23 +8,31 @@ class PetLoversScaffold extends StatelessWidget {
   const PetLoversScaffold({
     Key? key,
     this.title,
-    this.leading,
+    this.actions,
     required this.body,
     this.onWillPop,
     this.backgroundColor,
     this.appBarBackgroundColor,
     this.appBarBottom,
     this.bottomFloating,
+    this.withSearchBar = false,
+    this.customeLeading,
+    this.extendBodyBehindAppBar = false,
+    this.toolbarHeight,
   }) : super(key: key);
 
   final String? title;
-  final Widget? leading;
+  final List<Widget>? actions;
   final Widget body;
   final Future<bool> Function()? onWillPop;
   final Color? backgroundColor;
   final Color? appBarBackgroundColor;
   final PreferredSizeWidget? appBarBottom;
   final Widget? bottomFloating;
+  final bool withSearchBar;
+  final Widget? customeLeading;
+  final bool extendBodyBehindAppBar;
+  final double? toolbarHeight;
 
   bool _capPop(BuildContext context) {
     final route = ModalRoute.of(context);
@@ -34,32 +42,65 @@ class PetLoversScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final bottom = MediaQuery.of(context).padding.bottom;
 
     return WillPopScope(
       onWillPop: onWillPop,
       child: Scaffold(
+        extendBodyBehindAppBar: extendBodyBehindAppBar,
         backgroundColor: backgroundColor ?? PLThemeConstant.white,
         appBar: AppBar(
+          actions: actions,
           elevation: 0,
           centerTitle: _capPop(context) ? false : true,
           backgroundColor: appBarBackgroundColor ?? PLThemeConstant.white,
           bottom: appBarBottom,
+          toolbarHeight: toolbarHeight,
           leading: _capPop(context)
-              ? IconButton(
-                  onPressed: () {
-                    pop(context: context);
+              ? customeLeading ??
+                  IconButton(
+                    onPressed: () {
+                      pop(context: context);
+                    },
+                    icon: Image.asset(
+                      backPink,
+                      width: PLThemeConstant.sizeL,
+                    ),
+                  )
+              : customeLeading,
+          title: withSearchBar
+              ? InkWell(
+                  onTap: () {
+                    showSearch(
+                      context: context,
+                      delegate: PetLoveSearchDelegate(),
+                    );
                   },
-                  icon: Image.asset(
-                    backPink,
-                    width: PLThemeConstant.sizeL,
-                  ),
+                  child: Container(
+                      width: double.infinity,
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 10,
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: PLThemeConstant.cardBorderRadius,
+                        color: Colors.white,
+                        boxShadow: const [
+                          PLThemeConstant.boxShadow,
+                        ],
+                      ),
+                      child: Text(
+                        "Telusuri apapun disini ....",
+                        style: textTheme.bodySmall,
+                      )),
                 )
-              : null,
-          title: Text(
-            title ?? "",
-            textAlign: TextAlign.start,
-            style: _capPop(context) ? textTheme.headline1 : textTheme.bodyText2,
-          ),
+              : Text(
+                  title ?? "",
+                  textAlign: TextAlign.start,
+                  style: _capPop(context)
+                      ? textTheme.headline1
+                      : textTheme.bodyText2,
+                ),
         ),
         body: Stack(
           children: [
@@ -67,7 +108,7 @@ class PetLoversScaffold extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Padding(
-                padding: const EdgeInsets.all(PLThemeConstant.sizeM),
+                padding: EdgeInsets.only(bottom: bottom),
                 child: bottomFloating ?? const Offstage(),
               ),
             ),
@@ -75,5 +116,42 @@ class PetLoversScaffold extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class PetLoveSearchDelegate extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    return [
+      IconButton(
+        icon: const Icon(Icons.clear),
+        onPressed: () {
+          close(context, null);
+        },
+      ),
+    ];
+  }
+
+  @override
+  Widget? buildLeading(BuildContext context) {
+    return IconButton(
+      onPressed: () {
+        close(context, null);
+      },
+      icon: Image.asset(
+        backPink,
+        width: PLThemeConstant.sizeL,
+      ),
+    );
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    return const Text("Sukses");
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    return const Text("suggesstion");
   }
 }

@@ -2,19 +2,48 @@ import '../../../../core/petlovers_core.dart';
 import '../page/product/detail_product_shop_page.dart';
 
 class ShopTileWidget extends StatelessWidget {
-  const ShopTileWidget({Key? key}) : super(key: key);
+  const ShopTileWidget({
+    Key? key,
+    this.index = 0,
+    this.withoutMargin = false,
+    this.noCartButton = false,
+    this.image,
+    this.hideFlashSale = true,
+  }) : super(key: key);
+
+  final int index;
+  final bool withoutMargin;
+  final bool noCartButton;
+  final String? image;
+  final bool hideFlashSale;
+
+  factory ShopTileWidget.discovery({
+    required int index,
+    String? image,
+  }) {
+    return ShopTileWidget(
+      index: index,
+      noCartButton: true,
+      withoutMargin: true,
+      image: image,
+      hideFlashSale: false,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
+    final endDate = DateTime.now().add(const Duration(days: 5));
 
     return Container(
       width: 150,
       // height: 310,
-      margin: const EdgeInsets.symmetric(
-        horizontal: PLThemeConstant.sizeS,
-        vertical: PLThemeConstant.sizeM,
-      ),
+      margin: withoutMargin
+          ? null
+          : const EdgeInsets.symmetric(
+              horizontal: PLThemeConstant.sizeS,
+              vertical: PLThemeConstant.sizeM,
+            ),
       child: Card(
         margin: EdgeInsets.zero,
         child: Material(
@@ -37,13 +66,15 @@ class ShopTileWidget extends StatelessWidget {
                     Container(
                       width: double.infinity,
                       height: 120,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         image: DecorationImage(
                           image: NetworkImage(
-                              "https://id-test-11.slatic.net/p/328c5d9f41eb6ce84d7e4441891471b2.jpg"),
+                            image ??
+                                "https://id-test-11.slatic.net/p/328c5d9f41eb6ce84d7e4441891471b2.jpg",
+                          ),
                           fit: BoxFit.cover,
                         ),
-                        borderRadius: BorderRadius.only(
+                        borderRadius: const BorderRadius.only(
                           topLeft: Radius.circular(
                             PLThemeConstant.radius,
                           ),
@@ -56,19 +87,21 @@ class ShopTileWidget extends StatelessWidget {
                         ),
                       ),
                     ),
-                    Positioned(
-                      top: PLThemeConstant.sizeSS,
-                      right: 5,
-                      child: PLButtonCircleWidget.gradient(
-                        icon: addToCartWhite,
-                        gradiendBackgroundColor: const [
-                          PLThemeConstant.pinkSecondary,
-                          PLThemeConstant.pinkPrimary
-                        ],
-                        onPressed: () {},
-                        buttonSize: PLThemeConstant.sizeXL,
+                    if (noCartButton == false) ...{
+                      Positioned(
+                        top: PLThemeConstant.sizeSS,
+                        right: 5,
+                        child: PLButtonCircleWidget.gradient(
+                          icon: addToCartWhite,
+                          gradiendBackgroundColor: const [
+                            PLThemeConstant.pinkSecondary,
+                            PLThemeConstant.pinkPrimary
+                          ],
+                          onPressed: () {},
+                          buttonSize: PLThemeConstant.sizeXL,
+                        ),
                       ),
-                    ),
+                    },
                   ],
                 ),
                 Container(
@@ -87,37 +120,125 @@ class ShopTileWidget extends StatelessWidget {
                         "Pet shop dramaga,  75km",
                         maxLines: 2,
                       ),
-                      RichText(
-                        text: TextSpan(
-                          children: <TextSpan>[
-                            TextSpan(
-                              text: '20K',
-                              style: textTheme.bodyText2?.copyWith(
-                                color: PLThemeConstant.pinkPrimary,
-                                fontSize: 15,
-                                fontStyle: FontStyle.italic,
-                                decoration: TextDecoration.lineThrough,
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: [
+                          RichText(
+                            text: TextSpan(
+                              children: <TextSpan>[
+                                TextSpan(
+                                  text: '20K',
+                                  style: textTheme.bodyText2?.copyWith(
+                                    color: PLThemeConstant.pinkPrimary
+                                        .withOpacity(0.5),
+                                    fontSize: 15,
+                                    fontStyle: FontStyle.italic,
+                                    decoration: TextDecoration.lineThrough,
+                                  ),
+                                ),
+                                TextSpan(
+                                    text: ' 45K', style: textTheme.headline1),
+                              ],
+                            ),
+                          ),
+                          const SizedBox(width: 5),
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 5,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              border: Border.all(
+                                color: PLThemeConstant.pinkSecondary
+                                    .withOpacity(0.8),
                               ),
                             ),
-                            TextSpan(text: ' 45K', style: textTheme.headline1),
-                          ],
-                        ),
+                            child: Text(
+                              "COD",
+                              style: textTheme.titleSmall?.copyWith(
+                                color: PLThemeConstant.pinkPrimary,
+                                fontSize: 8,
+                                fontStyle: FontStyle.italic,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
-                      const SizedBox(
-                        height: PLThemeConstant.sizeM,
-                      ),
+                      const SizedBox(height: PLThemeConstant.sizeS),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Row(
                             children: [
-                              const Icon(Icons.star, color: Colors.yellow),
+                              const Icon(
+                                Icons.star,
+                                color: PLThemeConstant.yellowPrimary,
+                                size: 20,
+                              ),
                               Text("4.5", style: textTheme.bodyText2),
                             ],
                           ),
                           Text("Terjual 25", style: textTheme.bodyText2),
                         ],
                       ),
+                      if (hideFlashSale == false && index == 0) ...{
+                        const SizedBox(height: PLThemeConstant.sizeS),
+                        Wrap(
+                          children: [
+                            Container(
+                              margin: const EdgeInsets.only(top: 5),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 10,
+                                vertical: 2,
+                              ),
+                              decoration: BoxDecoration(
+                                gradient: const LinearGradient(
+                                  colors: [
+                                    PLThemeConstant.yellowPrimary,
+                                    PLThemeConstant.white,
+                                  ],
+                                ),
+                                borderRadius: BorderRadius.circular(8),
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    "Flash sale",
+                                    style: textTheme.bodySmall?.copyWith(
+                                      color: PLThemeConstant.white,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  const Icon(
+                                    Icons.bolt_rounded,
+                                    color: PLThemeConstant.white,
+                                    size: 20,
+                                  ),
+                                  StreamBuilder(
+                                    stream: Stream.periodic(
+                                        const Duration(seconds: 1), (i) => i),
+                                    builder: (context, snapshot) {
+                                      final d =
+                                          endDate.difference(DateTime.now());
+                                      final hours = d.inHours % 24;
+                                      final minute = d.inMinutes % 60;
+                                      final secods = d.inSeconds % 60;
+                                      return Text(
+                                        "$hours:$minute:$secods",
+                                        style: textTheme.bodySmall?.copyWith(
+                                          color: PLThemeConstant.blackPrimary,
+                                          fontWeight: FontWeight.bold,
+                                        ),
+                                      );
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        )
+                      },
                     ],
                   ),
                 )

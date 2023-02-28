@@ -60,8 +60,8 @@ InputDecorationTheme get _inputDecorationTheme {
 /// getter for card theme
 CardTheme get _cardTheme {
   return CardTheme(
-    elevation: 10,
-    shadowColor: PLThemeConstant.lightPrimary,
+    elevation: 5,
+    shadowColor: PLThemeConstant.lightPrimary.withOpacity(0.7),
     shape: RoundedRectangleBorder(
       borderRadius: BorderRadius.circular(PLThemeConstant.radius),
     ),
@@ -105,7 +105,7 @@ TextTheme get _textTheme {
     bodyText1: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
-      fontSize: 14,
+      fontSize: 13,
       fontWeight: FontWeight.bold,
     ),
     bodyText2: TextStyle(

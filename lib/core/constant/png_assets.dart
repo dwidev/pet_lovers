@@ -21,3 +21,5 @@ const String rabbit = "assets/icons/rabbit.png";
 const String turtle = "assets/icons/turtle.png";
 const String hamster = "assets/icons/hamster.png";
 const String birdBlue = "assets/icons/bird_blue.png";
+const String filterPink = "assets/icons/filter.png";
+const String thunderOverlay = "assets/icons/thunder.png";

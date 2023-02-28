@@ -14,39 +14,42 @@ class DetailProductShopBottomButtonWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final textTheme = getTextTheme(context);
 
-    return Row(
-      children: [
-        PLButtonCircleWidget(
-          buttonSize: 45,
-          icon: addToCart,
-          onPressed: onPressedCart,
-        ),
-        const SizedBox(width: PLThemeConstant.sizeM),
-        Expanded(
-          child: CustomeButtonWidget(
-            onPressed: onPressedCheckout,
-            child: Text.rich(
-              TextSpan(
-                children: [
-                  TextSpan(
-                    text: "53k",
-                    style: textTheme.headline1?.copyWith(
-                      color: Colors.yellow,
-                      fontSize: 30,
+    return Container(
+      color: Colors.white,
+      child: Row(
+        children: [
+          PLButtonCircleWidget(
+            buttonSize: 45,
+            icon: addToCart,
+            onPressed: onPressedCart,
+          ),
+          const SizedBox(width: PLThemeConstant.sizeM),
+          Expanded(
+            child: CustomeButtonWidget(
+              onPressed: onPressedCheckout,
+              child: Text.rich(
+                TextSpan(
+                  children: [
+                    TextSpan(
+                      text: "53k",
+                      style: textTheme.headline1?.copyWith(
+                        color: Colors.yellow,
+                        fontSize: 30,
+                      ),
                     ),
-                  ),
-                  TextSpan(
-                    text: " Bayar",
-                    style: textTheme.headline1?.copyWith(
-                      color: Colors.white,
+                    TextSpan(
+                      text: " Bayar",
+                      style: textTheme.headline1?.copyWith(
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-        )
-      ],
+          )
+        ],
+      ),
     );
   }
 }

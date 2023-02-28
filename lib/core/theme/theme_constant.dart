@@ -26,6 +26,7 @@ abstract class PLThemeConstant {
   static const Color white = Colors.white;
   static const int pinkPrimaryInt = 0xff770707;
   static const Color pinkPrimary = Color(pinkPrimaryInt);
+  static const Color pinkDarkPrimary = Color(0xff5A0606);
   static const int pinkSecondaryInt = 0xffDC7979;
   static const Color pinkSecondary = Color(pinkSecondaryInt);
   static const Color blackPrimary = Color(0xff525252);

@@ -1,15 +1,14 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
-import 'package:pet_lovers/core/base/local_storage/token_storage.dart';
-import 'package:pet_lovers/core/base/networking/dio.dart';
-import 'package:pet_lovers/core/navigator/navigator.dart';
-import 'package:pet_lovers/module/auth/presentation/page/login_page.dart';
-import 'package:pet_lovers/module/auth/presentation/page/splash_page.dart';
-import 'package:pet_lovers/module/shop/presentation/page/cart/cart_page.dart';
-import 'package:pet_lovers/module/shop/presentation/widgets/shop_tile_widget.dart';
 
+import '../../../../core/base/local_storage/token_storage.dart';
+import '../../../../core/navigator/navigator.dart';
 import '../../../../core/petlovers_core.dart';
 import '../../../adopt/presentation/widgets/adopt_tile_widget.dart';
+import '../../../auth/presentation/page/splash_page.dart';
+import '../../../shop/presentation/page/cart/cart_page.dart';
+import '../../../shop/presentation/page/main/discover_shop_page.dart';
+import '../../../shop/presentation/widgets/shop_tile_widget.dart';
 
 class HomePage extends ConsumerStatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -155,7 +154,12 @@ class _HomePageState extends ConsumerState<HomePage> {
                           style: textTheme.bodyText1,
                         ),
                         TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            push(
+                              context: context,
+                              page: const DiscoverShopPage(),
+                            );
+                          },
                           child: Text(
                             "lihat semua",
                             style: textTheme.caption,
@@ -169,9 +173,10 @@ class _HomePageState extends ConsumerState<HomePage> {
                       child: ListView.builder(
                         physics: const BouncingScrollPhysics(),
                         scrollDirection: Axis.horizontal,
-                        itemCount: 3,
+                        itemCount: dummyProduct.length,
                         itemBuilder: (_, s) {
-                          return const ShopTileWidget();
+                          final image = dummyProduct[s];
+                          return ShopTileWidget(image: image);
                         },
                       ),
                     ),
