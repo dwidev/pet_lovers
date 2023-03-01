@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:pet_lovers/module/shop/presentation/page/main/discover_shop_page.dart';
 
 import '../../../../../core/navigator/navigator.dart';
 import '../../../../../core/petlovers_core.dart';
@@ -9,8 +10,22 @@ import '../../widgets/product/detail_product_bottom_button.dart';
 const dummyShop =
     "https://st3.depositphotos.com/1063437/18549/i/450/depositphotos_185496108-stock-photo-whiskas-cat-food-products-of.jpg";
 
-class DetailProductShop extends StatelessWidget {
-  const DetailProductShop({Key? key}) : super(key: key);
+class DetailProductShop extends StatefulWidget {
+  const DetailProductShop({super.key});
+
+  @override
+  State<DetailProductShop> createState() => _DetailProductShopState();
+}
+
+class _DetailProductShopState extends State<DetailProductShop> {
+  late PageController pageController;
+  int indexPage = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    pageController = PageController();
+  }
 
   Widget get separator {
     return const SizedBox(height: PLThemeConstant.sizeS);
@@ -25,10 +40,10 @@ class DetailProductShop extends StatelessWidget {
       extendBodyBehindAppBar: true,
       backgroundColor: PLThemeConstant.lightPrimary,
       appBarBackgroundColor: Colors.transparent,
-      bottomFloating: DetailProductShopBottomButtonWidget(
-        onPressedCart: () {},
-        onPressedCheckout: () {},
-      ),
+      // bottomFloating: DetailProductShopBottomButtonWidget(
+      //   onPressedCart: () {},
+      //   onPressedCheckout: () {},
+      // ),
       toolbarHeight: kToolbarHeight + 20,
       customeLeading: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20).copyWith(left: 10),
@@ -74,14 +89,28 @@ class DetailProductShop extends StatelessWidget {
               Stack(
                 children: [
                   Container(
-                    padding: EdgeInsets.zero,
                     width: size.width,
-                    height: 250,
-                    decoration: const BoxDecoration(
-                      image: DecorationImage(
-                        image: NetworkImage(dummyShop),
-                        fit: BoxFit.cover,
-                      ),
+                    height: size.height / 2.2,
+                    child: PageView.builder(
+                      controller: pageController,
+                      itemCount: dummyProduct.length,
+                      onPageChanged: (value) {
+                        setState(() {
+                          indexPage = value + 1;
+                        });
+                      },
+                      itemBuilder: (context, index) {
+                        final image = dummyProduct[index];
+                        return Container(
+                          padding: EdgeInsets.zero,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              image: NetworkImage(image),
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        );
+                      },
                     ),
                   ),
                   Positioned(
@@ -94,7 +123,7 @@ class DetailProductShop extends StatelessWidget {
                       ),
                       color: Colors.black.withOpacity(0.5),
                       child: Text(
-                        "1/5",
+                        "$indexPage/${dummyProduct.length}",
                         style: textTheme.bodySmall?.copyWith(
                           color: Colors.white,
                           fontWeight: FontWeight.normal,
@@ -705,9 +734,7 @@ class DetailProductShop extends StatelessWidget {
                   ],
                 ),
               ),
-              separator,
-              separator,
-              separator,
+              const SizedBox(height: 100)
             ],
           ),
         ),
