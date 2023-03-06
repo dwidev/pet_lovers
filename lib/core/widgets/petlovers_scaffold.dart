@@ -42,7 +42,7 @@ class PetLoversScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final bottom = MediaQuery.of(context).padding.bottom;
+    final bottom = MediaQuery.of(context).viewInsets.bottom;
 
     return WillPopScope(
       onWillPop: onWillPop,
@@ -107,10 +107,7 @@ class PetLoversScaffold extends StatelessWidget {
             body,
             Align(
               alignment: Alignment.bottomCenter,
-              child: Padding(
-                padding: EdgeInsets.only(bottom: bottom),
-                child: bottomFloating ?? const Offstage(),
-              ),
+              child: bottomFloating ?? const Offstage(),
             ),
           ],
         ),

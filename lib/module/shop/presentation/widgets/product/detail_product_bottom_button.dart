@@ -1,3 +1,5 @@
+import 'package:flutter/cupertino.dart';
+
 import '../../../../../core/petlovers_core.dart';
 
 class DetailProductShopBottomButtonWidget extends StatelessWidget {
@@ -12,40 +14,45 @@ class DetailProductShopBottomButtonWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = getTextTheme(context);
-
     return Container(
+      padding: const EdgeInsets.symmetric(
+        horizontal: PLThemeConstant.sizeML,
+        vertical: PLThemeConstant.sizeM,
+      ),
       color: Colors.white,
       child: Row(
         children: [
-          PLButtonCircleWidget(
-            buttonSize: 45,
-            icon: addToCart,
-            onPressed: onPressedCart,
+          InkWell(
+            onTap: () {},
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(CupertinoIcons.chat_bubble_2),
+                Text("chat")
+              ],
+            ),
+          ),
+          const SizedBox(width: 15),
+          InkWell(
+            onTap: () {},
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: const [
+                Icon(Icons.storefront_outlined),
+                Text("Toko"),
+              ],
+            ),
           ),
           const SizedBox(width: PLThemeConstant.sizeM),
+          OutlinedButton(
+            onPressed: () {},
+            child: const Text("Tambah ke Troli"),
+          ),
+          const SizedBox(width: 10),
           Expanded(
-            child: CustomeButtonWidget(
-              onPressed: onPressedCheckout,
-              child: Text.rich(
-                TextSpan(
-                  children: [
-                    TextSpan(
-                      text: "53k",
-                      style: textTheme.displayLarge?.copyWith(
-                        color: Colors.yellow,
-                        fontSize: 30,
-                      ),
-                    ),
-                    TextSpan(
-                      text: " Bayar",
-                      style: textTheme.displayLarge?.copyWith(
-                        color: Colors.white,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text("Beli sekarang"),
             ),
           )
         ],

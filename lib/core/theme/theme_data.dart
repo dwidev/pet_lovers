@@ -72,14 +72,12 @@ CardTheme get _cardTheme {
 ElevatedButtonThemeData get _elevatedButtonTheme {
   return ElevatedButtonThemeData(
     style: ButtonStyle(
-      elevation: MaterialStateProperty.all(
-        PLThemeConstant.elevation,
-      ),
-      shape: MaterialStateProperty.all(
-        RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(PLThemeConstant.radius),
-        ),
-      ),
+      elevation: MaterialStateProperty.all(0),
+      // shape: MaterialStateProperty.all(
+      //   RoundedRectangleBorder(
+      //     borderRadius: BorderRadius.circular(PLThemeConstant.radius),
+      //   ),
+      // ),
       backgroundColor: MaterialStateProperty.resolveWith(
         (states) {
           if (states.contains(MaterialState.disabled)) {

@@ -40,10 +40,10 @@ class _DetailProductShopState extends State<DetailProductShop> {
       extendBodyBehindAppBar: true,
       backgroundColor: PLThemeConstant.lightPrimary,
       appBarBackgroundColor: Colors.transparent,
-      // bottomFloating: DetailProductShopBottomButtonWidget(
-      //   onPressedCart: () {},
-      //   onPressedCheckout: () {},
-      // ),
+      bottomFloating: DetailProductShopBottomButtonWidget(
+        onPressedCart: () {},
+        onPressedCheckout: () {},
+      ),
       toolbarHeight: kToolbarHeight + 20,
       customeLeading: Padding(
         padding: const EdgeInsets.symmetric(vertical: 20).copyWith(left: 10),
@@ -554,56 +554,68 @@ class _DetailProductShopState extends State<DetailProductShop> {
                 width: size.width,
                 color: Colors.white,
                 padding: const EdgeInsets.all(15),
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Row(
-                          children: [
-                            const CircleAvatar(
-                              radius: 25,
-                              backgroundImage: NetworkImage(
-                                profileSourceDummy,
-                              ),
-                            ),
-                            const SizedBox(width: 10),
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  "PetShop Keluarga",
-                                  style: textTheme.bodyLarge,
-                                  overflow: TextOverflow.clip,
-                                ),
-                                Row(
-                                  children: [
-                                    const Icon(
-                                      Icons.star,
-                                      color: PLThemeConstant.yellowPrimary,
-                                      size: 15,
-                                    ),
-                                    Text("4.5", style: textTheme.bodyMedium),
-                                    const SizedBox(
-                                      width: PLThemeConstant.sizeSS,
-                                    ),
-                                    Text("100 Items",
-                                        style: textTheme.bodyMedium),
-                                  ],
-                                ),
-                              ],
-                            )
-                          ],
+                        const CircleAvatar(
+                          radius: 25,
+                          backgroundImage: NetworkImage(
+                            profileSourceDummy,
+                          ),
                         ),
-                        ElevatedButton(
-                          onPressed: () {},
-                          child: const Text("Ikuti"),
+                        const SizedBox(width: 10),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              "PetShop Keluarga",
+                              style: textTheme.bodyLarge,
+                              overflow: TextOverflow.clip,
+                            ),
+                            Row(
+                              children: [
+                                const Icon(
+                                  Icons.star,
+                                  color: PLThemeConstant.yellowPrimary,
+                                  size: 15,
+                                ),
+                                Text("4.5", style: textTheme.bodyMedium),
+                                const SizedBox(
+                                  width: PLThemeConstant.sizeSS,
+                                ),
+                                Text("100 Items", style: textTheme.bodyMedium),
+                              ],
+                            ),
+                          ],
                         )
                       ],
                     ),
+                    // Row(
+                    //   mainAxisSize: MainAxisSize.min,
+                    //   children: [
+                    //     InkWell(
+                    //       onTap: () {},
+                    //       child: Column(
+                    //         children: const [
+                    //           Icon(CupertinoIcons.chat_bubble_2),
+                    //           Text("chat")
+                    //         ],
+                    //       ),
+                    //     ),
+                    //     const SizedBox(width: 15),
+                    //     InkWell(
+                    //       onTap: () {},
+                    //       child: Column(
+                    //         children: const [
+                    //           Icon(Icons.storefront_outlined),
+                    //           Text("Toko")
+                    //         ],
+                    //       ),
+                    //     ),
+                    //   ],
+                    // )
                   ],
                 ),
               ),
