@@ -1,11 +1,17 @@
 import 'package:flutter/cupertino.dart';
-import 'package:pet_lovers/module/shop/presentation/page/main/discover_shop_page.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:pet_lovers/module/shop/presentation/page/product/address_shipping_page.dart';
+import 'package:pet_lovers/module/shop/presentation/page/product/rating_product_page.dart';
 
 import '../../../../../core/navigator/navigator.dart';
 import '../../../../../core/petlovers_core.dart';
 import '../../../../../core/widgets/badge_widget.dart';
+import '../../../../../core/widgets/modal_bottomsheet.dart';
 import '../../../../home/presentations/page/home_page.dart';
 import '../../widgets/product/detail_product_bottom_button.dart';
+import '../../widgets/product/rating_comment_widget.dart';
+import '../../widgets/shop_tile_widget.dart';
+import '../main/discover_shop_page.dart';
 
 const dummyShop =
     "https://st3.depositphotos.com/1063437/18549/i/450/depositphotos_185496108-stock-photo-whiskas-cat-food-products-of.jpg";
@@ -25,10 +31,6 @@ class _DetailProductShopState extends State<DetailProductShop> {
   void initState() {
     super.initState();
     pageController = PageController();
-  }
-
-  Widget get separator {
-    return const SizedBox(height: PLThemeConstant.sizeS);
   }
 
   @override
@@ -417,19 +419,67 @@ class _DetailProductShopState extends State<DetailProductShop> {
                           overflow: TextOverflow.clip,
                         ),
                         const SizedBox(width: PLThemeConstant.sizeS),
-                        Row(
-                          children: [
-                            Text(
-                              "900gr",
-                              style: textTheme.bodySmall,
-                              overflow: TextOverflow.clip,
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              color: PLThemeConstant.blackPrimary,
-                              size: 10,
-                            )
-                          ],
+                        InkWell(
+                          onTap: () => showBaseModal(
+                            context,
+                            (context) {
+                              return Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Text(
+                                    "Opsi",
+                                    style: textTheme.bodyLarge,
+                                    overflow: TextOverflow.clip,
+                                  ),
+                                  const SizedBox(height: PLThemeConstant.sizeS),
+                                  Image.network(
+                                    "https://s4.bukalapak.com/img/96923196592/s-463-463/data.jpeg.webp",
+                                    fit: BoxFit.cover,
+                                    width: 80,
+                                  ),
+                                  const SizedBox(height: PLThemeConstant.sizeS),
+                                  Wrap(
+                                    children: List.generate(
+                                      3,
+                                      (index) => Container(
+                                        margin:
+                                            const EdgeInsets.only(right: 10),
+                                        child: OutlinedButton(
+                                          onPressed: () {},
+                                          child: const Text("90 gram"),
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                  const SizedBox(height: PLThemeConstant.sizeS),
+                                  Container(
+                                    width: double.infinity,
+                                    child: ElevatedButton(
+                                      onPressed: () {
+                                        pop(context: context);
+                                      },
+                                      child: const Text("Konfirmasi"),
+                                    ),
+                                  )
+                                ],
+                              );
+                            },
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                "900gr",
+                                style: textTheme.bodySmall,
+                                overflow: TextOverflow.clip,
+                              ),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                color: PLThemeConstant.blackPrimary,
+                                size: 10,
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),
@@ -506,31 +556,249 @@ class _DetailProductShopState extends State<DetailProductShop> {
                           style: textTheme.bodyLarge,
                           overflow: TextOverflow.clip,
                         ),
-                        Row(
-                          children: [
-                            Text(
-                              "Rp15.000",
-                              style: textTheme.bodySmall?.copyWith(
-                                decoration: TextDecoration.lineThrough,
+                        InkWell(
+                          onTap: () => showBaseModal(
+                            context,
+                            customePadding: EdgeInsets.zero,
+                            (context) {
+                              return Container(
+                                width: getSize(context).width,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.all(15)
+                                          .copyWith(bottom: 0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            "Pengiriman",
+                                            style: textTheme.bodyLarge,
+                                            overflow: TextOverflow.clip,
+                                          ),
+                                          const SizedBox(
+                                              height: PLThemeConstant.sizeM),
+                                          Row(
+                                            children: [
+                                              const Icon(
+                                                CupertinoIcons.cube_box,
+                                                size: 20,
+                                              ),
+                                              const SizedBox(width: 15),
+                                              Text(
+                                                "Dikirim dari Jakarta Pusat",
+                                                style: textTheme.bodyMedium,
+                                                overflow: TextOverflow.ellipsis,
+                                              ),
+                                            ],
+                                          ),
+                                          separator,
+                                          const Icon(
+                                            Icons.keyboard_double_arrow_down,
+                                            size: 20,
+                                          ),
+                                          Row(
+                                            children: [
+                                              const Icon(
+                                                Icons.location_on_outlined,
+                                                size: 20,
+                                              ),
+                                              const SizedBox(width: 15),
+                                              Expanded(
+                                                child: InkWell(
+                                                  splashFactory:
+                                                      NoSplash.splashFactory,
+                                                  splashColor:
+                                                      Colors.transparent,
+                                                  onTap: () {
+                                                    push(
+                                                      context: context,
+                                                      page:
+                                                          const ShippingAddressPage(),
+                                                    );
+                                                  },
+                                                  child: Row(
+                                                    children: [
+                                                      Expanded(
+                                                        child: Column(
+                                                          crossAxisAlignment:
+                                                              CrossAxisAlignment
+                                                                  .start,
+                                                          children: [
+                                                            Text(
+                                                              "Rumah",
+                                                              style: textTheme
+                                                                  .bodyLarge,
+                                                            ),
+                                                            Text(
+                                                              "Ciherang, Dramaga Kabupaten Bogor, Jawa Barat, 16680",
+                                                              style: textTheme
+                                                                  .bodyMedium,
+                                                              overflow:
+                                                                  TextOverflow
+                                                                      .ellipsis,
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                      const Icon(
+                                                        Icons
+                                                            .arrow_forward_ios_rounded,
+                                                        size: 10,
+                                                      ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    separator,
+                                    separator,
+                                    const Divider(
+                                      color: PLThemeConstant.unselectedColor,
+                                      height: 0.5,
+                                    ),
+                                    InkWell(
+                                      onTap: () {
+                                        print("shiping");
+                                      },
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 15, vertical: 15),
+                                        child: Row(
+                                          children: [
+                                            Stack(
+                                              alignment: Alignment.center,
+                                              children: [
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    border: Border.all(
+                                                      color: PLThemeConstant
+                                                          .pinkDarkPrimary,
+                                                      width: 2,
+                                                    ),
+                                                    color: Colors.white,
+                                                  ),
+                                                  width: 20,
+                                                  height: 20,
+                                                ),
+                                                Container(
+                                                  decoration: BoxDecoration(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                    color: PLThemeConstant
+                                                        .pinkDarkPrimary,
+                                                  ),
+                                                  width: 10,
+                                                  height: 10,
+                                                ),
+                                              ],
+                                            ),
+                                            const SizedBox(
+                                                width: PLThemeConstant.sizeM),
+                                            Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Wrap(
+                                                  crossAxisAlignment:
+                                                      WrapCrossAlignment.center,
+                                                  children: [
+                                                    Text(
+                                                      "Gratis Ongkir",
+                                                      style: textTheme.bodyLarge
+                                                          ?.copyWith(
+                                                        color: PLThemeConstant
+                                                            .pinkSecondary,
+                                                      ),
+                                                    ),
+                                                    const SizedBox(width: 5),
+                                                    Text(
+                                                      "Rp 15.000",
+                                                      style: textTheme.bodySmall
+                                                          ?.copyWith(
+                                                        fontStyle:
+                                                            FontStyle.italic,
+                                                        decoration:
+                                                            TextDecoration
+                                                                .lineThrough,
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                const Text(
+                                                  "Estimasi kedatangan 15 Mei - 19 Mei",
+                                                ),
+                                                Text(
+                                                  "Jasa pengiriman JNE Standart",
+                                                  style: textTheme.bodySmall
+                                                      ?.copyWith(
+                                                    color: PLThemeConstant
+                                                        .pinkDarkPrimary,
+                                                  ),
+                                                ),
+                                              ],
+                                            )
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: PLThemeConstant.sizeXL,
+                                    ),
+                                    Container(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 20,
+                                      ),
+                                      width: double.infinity,
+                                      child: ElevatedButton(
+                                        onPressed: () {
+                                          pop(context: context);
+                                        },
+                                        child: const Text("Konfirmasi"),
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              );
+                            },
+                          ),
+                          child: Row(
+                            children: [
+                              Text(
+                                "Rp15.000",
+                                style: textTheme.bodySmall?.copyWith(
+                                  decoration: TextDecoration.lineThrough,
+                                ),
+                                overflow: TextOverflow.clip,
                               ),
-                              overflow: TextOverflow.clip,
-                            ),
-                            BadgeWidget(
-                              title: "Gratis ongkir",
-                              noShadow: true,
-                              backgroundColor: PLThemeConstant.pinkSecondary,
-                              borderRadius: BorderRadius.circular(2),
-                              textTheme: textTheme.bodySmall?.copyWith(
-                                color: PLThemeConstant.white,
-                                fontStyle: FontStyle.italic,
+                              BadgeWidget(
+                                title: "Gratis ongkir",
+                                noShadow: true,
+                                backgroundColor: PLThemeConstant.pinkSecondary,
+                                borderRadius: BorderRadius.circular(2),
+                                textTheme: textTheme.bodySmall?.copyWith(
+                                  color: PLThemeConstant.white,
+                                  fontStyle: FontStyle.italic,
+                                ),
                               ),
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              color: PLThemeConstant.blackPrimary,
-                              size: 10,
-                            )
-                          ],
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                color: PLThemeConstant.blackPrimary,
+                                size: 10,
+                              )
+                            ],
+                          ),
                         )
                       ],
                     ),
@@ -554,68 +822,119 @@ class _DetailProductShopState extends State<DetailProductShop> {
                 width: size.width,
                 color: Colors.white,
                 padding: const EdgeInsets.all(15),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const CircleAvatar(
-                          radius: 25,
-                          backgroundImage: NetworkImage(
-                            profileSourceDummy,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
+                        Row(
                           children: [
-                            Text(
-                              "PetShop Keluarga",
-                              style: textTheme.bodyLarge,
-                              overflow: TextOverflow.clip,
+                            const CircleAvatar(
+                              radius: 25,
+                              backgroundImage: NetworkImage(
+                                profileSourceDummy,
+                              ),
                             ),
-                            Row(
+                            const SizedBox(width: 10),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Icon(
-                                  Icons.star,
-                                  color: PLThemeConstant.yellowPrimary,
-                                  size: 15,
+                                Text(
+                                  "PetShop Keluarga",
+                                  style: textTheme.bodyLarge,
+                                  overflow: TextOverflow.clip,
                                 ),
-                                Text("4.5", style: textTheme.bodyMedium),
-                                const SizedBox(
-                                  width: PLThemeConstant.sizeSS,
+                                Row(
+                                  children: [
+                                    const Icon(
+                                      Icons.star,
+                                      color: PLThemeConstant.yellowPrimary,
+                                      size: 15,
+                                    ),
+                                    Text("4.5", style: textTheme.bodyMedium),
+                                    const SizedBox(
+                                      width: PLThemeConstant.sizeSS,
+                                    ),
+                                    Text("100 Items",
+                                        style: textTheme.bodyMedium),
+                                  ],
                                 ),
-                                Text("100 Items", style: textTheme.bodyMedium),
                               ],
                             ),
                           ],
-                        )
+                        ),
+                        OutlinedButton(
+                          onPressed: () {},
+                          child: const Text("Kunjungi toko"),
+                        ),
                       ],
                     ),
-                    // Row(
-                    //   mainAxisSize: MainAxisSize.min,
-                    //   children: [
-                    //     InkWell(
-                    //       onTap: () {},
-                    //       child: Column(
-                    //         children: const [
-                    //           Icon(CupertinoIcons.chat_bubble_2),
-                    //           Text("chat")
-                    //         ],
-                    //       ),
-                    //     ),
-                    //     const SizedBox(width: 15),
-                    //     InkWell(
-                    //       onTap: () {},
-                    //       child: Column(
-                    //         children: const [
-                    //           Icon(Icons.storefront_outlined),
-                    //           Text("Toko")
-                    //         ],
-                    //       ),
-                    //     ),
-                    //   ],
-                    // )
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.all(15),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      "lainnya dari toko ini",
+                      style: textTheme.bodySmall
+                          ?.copyWith(color: PLThemeConstant.blackPrimary),
+                    ),
+                    separator,
+                    Container(
+                      height: 80,
+                      child: ListView.builder(
+                        itemCount: 10,
+                        scrollDirection: Axis.horizontal,
+                        itemBuilder: (context, index) {
+                          return Padding(
+                            padding: const EdgeInsets.only(right: 10),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Expanded(
+                                  child: Image.network(
+                                    dummyShop,
+                                  ),
+                                ),
+                                const SizedBox(height: 5),
+                                Text(
+                                  "Vitamin Kucing",
+                                  style: textTheme.bodySmall?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 9,
+                                  ),
+                                ),
+                                Wrap(
+                                  children: [
+                                    Text(
+                                      "Rp.20.000",
+                                      style: textTheme.bodySmall?.copyWith(
+                                        fontWeight: FontWeight.normal,
+                                        fontSize: 9,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 2),
+                                    Text(
+                                      "5%",
+                                      style: textTheme.bodySmall?.copyWith(
+                                        fontWeight: FontWeight.normal,
+                                        fontStyle: FontStyle.italic,
+                                        fontSize: 9,
+                                        color: PLThemeConstant.pinkPrimary,
+                                      ),
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
+                          );
+                        },
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -637,116 +956,65 @@ class _DetailProductShopState extends State<DetailProductShop> {
                           overflow: TextOverflow.clip,
                         ),
                         const SizedBox(width: PLThemeConstant.sizeS),
-                        Row(
-                          children: [
-                            Text(
-                              "Lihat lainnya",
-                              style: textTheme.bodySmall,
-                              overflow: TextOverflow.clip,
-                            ),
-                            const Icon(
-                              Icons.arrow_forward_ios_rounded,
-                              color: PLThemeConstant.blackPrimary,
-                              size: 10,
-                            )
-                          ],
-                        )
-                      ],
-                    ),
-                    const SizedBox(height: PLThemeConstant.sizeM),
-                    Row(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        const CircleAvatar(
-                          radius: 20,
-                          backgroundImage: NetworkImage(
-                            profileSourceDummy,
-                          ),
-                        ),
-                        const SizedBox(width: 10),
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                        InkWell(
+                          onTap: () {
+                            push(
+                              context: context,
+                              page: const RatingProductPage(),
+                            );
+                          },
+                          child: Row(
                             children: [
-                              Row(
-                                children: [
-                                  Text(
-                                    "Fahmi dwi s",
-                                    style: textTheme.bodyLarge,
-                                    overflow: TextOverflow.clip,
-                                  ),
-                                  const SizedBox(width: PLThemeConstant.sizeSS),
-                                  Text(
-                                    "17/04/2023 - 17:05",
-                                    style: textTheme.bodySmall,
-                                    overflow: TextOverflow.clip,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: List.generate(
-                                  5,
-                                  (index) => const Icon(
-                                    Icons.star,
-                                    color: PLThemeConstant.yellowPrimary,
-                                    size: 15,
-                                  ),
-                                ),
-                              ),
-                              const SizedBox(height: PLThemeConstant.sizeMS),
                               Text(
-                                "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, ",
-                                style: textTheme.bodyMedium,
-                                maxLines: 2,
-                                overflow: TextOverflow.ellipsis,
+                                "Lihat lainnya",
+                                style: textTheme.bodySmall,
+                                overflow: TextOverflow.clip,
                               ),
-                              const SizedBox(height: PLThemeConstant.sizeMS),
-                              Row(
-                                children: List.generate(3, (index) {
-                                  return Container(
-                                    margin: const EdgeInsets.only(right: 10),
-                                    width: 70,
-                                    height: 70,
-                                    decoration: BoxDecoration(
-                                      color: PLThemeConstant.unselectedColor,
-                                      borderRadius: BorderRadius.circular(10),
-                                    ),
-                                    child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Stack(
-                                        children: [
-                                          Image.network(
-                                            "https://s4.bukalapak.com/img/96923196592/s-463-463/data.jpeg.webp",
-                                            fit: BoxFit.cover,
-                                          ),
-                                          if ((index + 1) == 3)
-                                            Container(
-                                              color:
-                                                  Colors.black.withOpacity(0.5),
-                                              alignment: Alignment.center,
-                                              child: Text(
-                                                "+3",
-                                                style: textTheme.bodyMedium
-                                                    ?.copyWith(
-                                                  color: Colors.white,
-                                                ),
-                                              ),
-                                            ),
-                                        ],
-                                      ),
-                                    ),
-                                  );
-                                }),
+                              const Icon(
+                                Icons.arrow_forward_ios_rounded,
+                                color: PLThemeConstant.blackPrimary,
+                                size: 10,
                               )
                             ],
                           ),
                         )
                       ],
-                    )
+                    ),
+                    const SizedBox(height: PLThemeConstant.sizeM),
+                    const RatingCommentWidget()
                   ],
                 ),
               ),
-              const SizedBox(height: 100)
+              Padding(
+                padding: const EdgeInsets.all(15),
+                child: Text(
+                  "Mungkin anda juga menyukai ini",
+                  style: textTheme.bodyMedium?.copyWith(
+                    color: PLThemeConstant.blackPrimary,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15).copyWith(top: 0),
+                child: MasonryGridView.count(
+                  padding: EdgeInsets.zero.copyWith(top: 10),
+                  crossAxisCount: 2,
+                  crossAxisSpacing: PLThemeConstant.sizeS,
+                  mainAxisSpacing: PLThemeConstant.sizeMS,
+                  shrinkWrap: true,
+                  itemCount: dummyProduct.length,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemBuilder: (c, index) {
+                    final image = dummyProduct[index];
+                    return ShopTileWidget.discovery(
+                      index: index,
+                      image: image,
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 100),
             ],
           ),
         ),

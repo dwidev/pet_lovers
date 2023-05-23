@@ -25,3 +25,24 @@ Future<void> pushAndRemoveAll({
   final route = MaterialPageRoute(builder: (_) => page);
   return Navigator.pushAndRemoveUntil<void>(context, route, (route) => false);
 }
+
+/// for navigate to next page with opacity animation
+Future<void> pushWithOpacity({
+  required BuildContext context,
+  required Widget page,
+}) async {
+  return Navigator.push<void>(
+    context,
+    PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) {
+        return page;
+      },
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        return FadeTransition(
+          opacity: animation,
+          child: child,
+        );
+      },
+    ),
+  );
+}

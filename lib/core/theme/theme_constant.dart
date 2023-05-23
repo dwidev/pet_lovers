@@ -74,3 +74,7 @@ TextTheme getTextTheme(BuildContext context) {
 EdgeInsets getViewPadding(BuildContext context) {
   return MediaQuery.of(context).viewPadding;
 }
+
+Widget get separator {
+  return const SizedBox(height: PLThemeConstant.sizeS);
+}

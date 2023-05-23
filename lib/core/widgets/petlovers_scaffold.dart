@@ -42,7 +42,6 @@ class PetLoversScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final bottom = MediaQuery.of(context).viewInsets.bottom;
 
     return WillPopScope(
       onWillPop: onWillPop,
@@ -64,7 +63,7 @@ class PetLoversScaffold extends StatelessWidget {
                     },
                     icon: Image.asset(
                       backPink,
-                      width: PLThemeConstant.sizeL,
+                      width: PLThemeConstant.sizeM,
                     ),
                   )
               : customeLeading,
@@ -98,7 +97,7 @@ class PetLoversScaffold extends StatelessWidget {
                   title ?? "",
                   textAlign: TextAlign.start,
                   style: _capPop(context)
-                      ? textTheme.displayLarge
+                      ? textTheme.displayLarge?.copyWith(fontSize: 15)
                       : textTheme.bodyMedium,
                 ),
         ),
@@ -137,7 +136,7 @@ class PetLoveSearchDelegate extends SearchDelegate {
       },
       icon: Image.asset(
         backPink,
-        width: PLThemeConstant.sizeL,
+        width: PLThemeConstant.sizeS,
       ),
     );
   }

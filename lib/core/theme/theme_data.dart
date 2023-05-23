@@ -24,6 +24,7 @@ ThemeData get baseTheme {
     textTheme: _textTheme,
     cardTheme: _cardTheme,
     elevatedButtonTheme: _elevatedButtonTheme,
+    outlinedButtonTheme: _outlinedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
     textButtonTheme: _textThemeButton,
   );
@@ -44,6 +45,10 @@ InputDecorationTheme get _inputDecorationTheme {
     filled: true,
     fillColor: PLThemeConstant.white,
     hintStyle: TextStyle(
+      fontSize: 13,
+      color: PLThemeConstant.blackPrimary.withOpacity(0.5),
+    ),
+    labelStyle: TextStyle(
       fontSize: 13,
       color: PLThemeConstant.blackPrimary.withOpacity(0.5),
     ),
@@ -91,6 +96,22 @@ ElevatedButtonThemeData get _elevatedButtonTheme {
   );
 }
 
+/// getters for button theme
+OutlinedButtonThemeData get _outlinedButtonTheme {
+  return OutlinedButtonThemeData(
+    style: ButtonStyle(
+      elevation: MaterialStateProperty.all(0),
+      textStyle: MaterialStateProperty.all(
+        const TextStyle(
+          overflow: TextOverflow.ellipsis,
+          color: PLThemeConstant.blackPrimary,
+          fontSize: 12,
+        ),
+      ),
+    ),
+  );
+}
+
 /// getters for text theme global
 TextTheme get _textTheme {
   return const TextTheme(
@@ -98,6 +119,18 @@ TextTheme get _textTheme {
       overflow: TextOverflow.ellipsis,
       color: PLThemeConstant.blackPrimary,
       fontSize: 20,
+      fontWeight: FontWeight.bold,
+    ),
+    displayMedium: TextStyle(
+      overflow: TextOverflow.ellipsis,
+      color: PLThemeConstant.blackPrimary,
+      fontSize: 13,
+      fontWeight: FontWeight.bold,
+    ),
+    displaySmall: TextStyle(
+      overflow: TextOverflow.ellipsis,
+      color: PLThemeConstant.blackPrimary,
+      fontSize: 8,
       fontWeight: FontWeight.bold,
     ),
     bodyLarge: TextStyle(
