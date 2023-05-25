@@ -2,6 +2,7 @@
 
 import 'package:pet_lovers/core/navigator/navigator.dart';
 
+import '../../module/shop/presentation/page/cart/cart_page.dart';
 import '../petlovers_core.dart';
 
 class PetLoversScaffold extends StatelessWidget {
@@ -16,6 +17,7 @@ class PetLoversScaffold extends StatelessWidget {
     this.appBarBottom,
     this.bottomFloating,
     this.withSearchBar = false,
+    this.withCartAction = false,
     this.customeLeading,
     this.extendBodyBehindAppBar = false,
     this.toolbarHeight,
@@ -29,7 +31,7 @@ class PetLoversScaffold extends StatelessWidget {
   final Color? appBarBackgroundColor;
   final PreferredSizeWidget? appBarBottom;
   final Widget? bottomFloating;
-  final bool withSearchBar;
+  final bool withSearchBar, withCartAction;
   final Widget? customeLeading;
   final bool extendBodyBehindAppBar;
   final double? toolbarHeight;
@@ -49,7 +51,20 @@ class PetLoversScaffold extends StatelessWidget {
         extendBodyBehindAppBar: extendBodyBehindAppBar,
         backgroundColor: backgroundColor ?? PLThemeConstant.white,
         appBar: AppBar(
-          actions: actions,
+          actions: withCartAction
+              ? [
+                  IconButton(
+                    onPressed: () {
+                      push(context: context, page: const CartPage());
+                    },
+                    icon: Image.asset(
+                      addToCart,
+                      width: 30,
+                      height: 30,
+                    ),
+                  )
+                ]
+              : actions,
           elevation: 0,
           centerTitle: _capPop(context) ? false : true,
           backgroundColor: appBarBackgroundColor ?? PLThemeConstant.white,
@@ -76,22 +91,29 @@ class PetLoversScaffold extends StatelessWidget {
                     );
                   },
                   child: Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 10,
-                        vertical: 10,
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: PLThemeConstant.cardBorderRadius,
-                        color: Colors.white,
-                        boxShadow: [
-                          PLThemeConstant.boxShadow,
-                        ],
-                      ),
-                      child: Text(
-                        "Telusuri apapun disini ....",
-                        style: textTheme.bodySmall,
-                      )),
+                    width: double.infinity,
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 10,
+                    ),
+                    decoration: BoxDecoration(
+                      borderRadius: PLThemeConstant.cardBorderRadius,
+                      color: Colors.white,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 10,
+                          spreadRadius: 1,
+                          color: PLThemeConstant.unselectedColor.withOpacity(
+                            0.5,
+                          ),
+                        )
+                      ],
+                    ),
+                    child: Text(
+                      "Telusuri apapun disini ....",
+                      style: textTheme.bodySmall,
+                    ),
+                  ),
                 )
               : Text(
                   title ?? "",

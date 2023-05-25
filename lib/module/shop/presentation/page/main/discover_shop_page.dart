@@ -29,18 +29,7 @@ class _DiscoverShopPageState extends State<DiscoverShopPage> {
     return PetLoversScaffold(
       backgroundColor: PLThemeConstant.lightPrimary,
       withSearchBar: true,
-      actions: [
-        IconButton(
-          onPressed: () {
-            push(context: context, page: const CartPage());
-          },
-          icon: Image.asset(
-            addToCart,
-            width: 30,
-            height: 30,
-          ),
-        )
-      ],
+      withCartAction: true,
       body: Column(
         mainAxisSize: MainAxisSize.min,
         children: [

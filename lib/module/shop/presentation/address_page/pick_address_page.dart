@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-import '../../../../../core/navigator/navigator.dart';
-import '../../../../../core/petlovers_core.dart';
+import '../../../../core/navigator/navigator.dart';
+import '../../../../core/petlovers_core.dart';
 import 'sample_address_data.dart';
 
 class PickAddressPage extends StatefulWidget {

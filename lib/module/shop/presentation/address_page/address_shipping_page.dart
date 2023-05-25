@@ -1,8 +1,8 @@
 import 'package:pet_lovers/core/navigator/navigator.dart';
-import 'package:pet_lovers/module/shop/presentation/page/product/pick_address_page.dart';
+import 'package:pet_lovers/module/shop/presentation/address_page/pick_address_page.dart';
 
-import '../../../../../core/petlovers_core.dart';
-import '../../widgets/shipping_address/shipping_address_tile.dart';
+import '../../../../core/petlovers_core.dart';
+import '../widgets/shipping_address/shipping_address_tile.dart';
 
 class ShippingAddressPage extends StatefulWidget {
   const ShippingAddressPage({super.key});

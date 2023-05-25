@@ -184,61 +184,7 @@ class ShopTileWidget extends StatelessWidget {
                       ),
                       if (hideFlashSale == false && index == 0) ...{
                         const SizedBox(height: PLThemeConstant.sizeS),
-                        Wrap(
-                          children: [
-                            Container(
-                              margin: const EdgeInsets.only(top: 5),
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
-                                gradient: const LinearGradient(
-                                  colors: [
-                                    PLThemeConstant.yellowPrimary,
-                                    PLThemeConstant.white,
-                                  ],
-                                ),
-                                borderRadius: BorderRadius.circular(8),
-                              ),
-                              child: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  Text(
-                                    "Flash sale",
-                                    style: textTheme.bodySmall?.copyWith(
-                                      color: PLThemeConstant.white,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const Icon(
-                                    Icons.bolt_rounded,
-                                    color: PLThemeConstant.white,
-                                    size: 20,
-                                  ),
-                                  StreamBuilder(
-                                    stream: Stream.periodic(
-                                        const Duration(seconds: 1), (i) => i),
-                                    builder: (context, snapshot) {
-                                      final d =
-                                          endDate.difference(DateTime.now());
-                                      final hours = d.inHours % 24;
-                                      final minute = d.inMinutes % 60;
-                                      final secods = d.inSeconds % 60;
-                                      return Text(
-                                        "$hours:$minute:$secods",
-                                        style: textTheme.bodySmall?.copyWith(
-                                          color: PLThemeConstant.blackPrimary,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        )
+                        FlashSaleWidget(endDate: endDate)
                       },
                     ],
                   ),
@@ -248,6 +194,74 @@ class ShopTileWidget extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class FlashSaleWidget extends StatelessWidget {
+  const FlashSaleWidget({
+    super.key,
+    required this.endDate,
+  });
+
+  final DateTime endDate;
+
+  @override
+  Widget build(BuildContext context) {
+    final textTheme = getTextTheme(context);
+
+    return Wrap(
+      children: [
+        Container(
+          margin: const EdgeInsets.only(top: 5),
+          padding: const EdgeInsets.symmetric(
+            horizontal: 10,
+            vertical: 2,
+          ),
+          decoration: BoxDecoration(
+            gradient: const LinearGradient(
+              colors: [
+                PLThemeConstant.yellowPrimary,
+                PLThemeConstant.white,
+              ],
+            ),
+            borderRadius: BorderRadius.circular(8),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                "Flash sale",
+                style: textTheme.bodySmall?.copyWith(
+                  color: PLThemeConstant.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const Icon(
+                Icons.bolt_rounded,
+                color: PLThemeConstant.white,
+                size: 20,
+              ),
+              StreamBuilder(
+                stream: Stream.periodic(const Duration(seconds: 1), (i) => i),
+                builder: (context, snapshot) {
+                  final d = endDate.difference(DateTime.now());
+                  final hours = d.inHours % 24;
+                  final minute = d.inMinutes % 60;
+                  final secods = d.inSeconds % 60;
+                  return Text(
+                    "$hours:$minute:$secods",
+                    style: textTheme.bodySmall?.copyWith(
+                      color: PLThemeConstant.blackPrimary,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  );
+                },
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:pet_lovers/module/shop/presentation/page/product/address_shipping_page.dart';
+import 'package:pet_lovers/core/widgets/voucher_widget.dart';
+import 'package:pet_lovers/module/shop/presentation/address_page/address_shipping_page.dart';
 import 'package:pet_lovers/module/shop/presentation/page/product/rating_product_page.dart';
+import 'package:pet_lovers/module/shop/presentation/store/store_shop_page.dart';
 
 import '../../../../../core/navigator/navigator.dart';
 import '../../../../../core/petlovers_core.dart';
@@ -670,7 +672,9 @@ class _DetailProductShopState extends State<DetailProductShop> {
                                       },
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
-                                            horizontal: 15, vertical: 15),
+                                          horizontal: 15,
+                                          vertical: 15,
+                                        ),
                                         child: Row(
                                           children: [
                                             Stack(
@@ -782,16 +786,9 @@ class _DetailProductShopState extends State<DetailProductShop> {
                                 ),
                                 overflow: TextOverflow.clip,
                               ),
-                              BadgeWidget(
-                                title: "Gratis ongkir",
-                                noShadow: true,
-                                backgroundColor: PLThemeConstant.pinkSecondary,
-                                borderRadius: BorderRadius.circular(2),
-                                textTheme: textTheme.bodySmall?.copyWith(
-                                  color: PLThemeConstant.white,
-                                  fontStyle: FontStyle.italic,
-                                ),
-                              ),
+                              const SizedBox(width: 8),
+                              const VoucherMiniWidget(),
+                              const SizedBox(width: 8),
                               const Icon(
                                 Icons.arrow_forward_ios_rounded,
                                 color: PLThemeConstant.blackPrimary,
@@ -865,7 +862,9 @@ class _DetailProductShopState extends State<DetailProductShop> {
                           ],
                         ),
                         OutlinedButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            push(context: context, page: const StoreShopPage());
+                          },
                           child: const Text("Kunjungi toko"),
                         ),
                       ],

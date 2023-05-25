@@ -1,4 +1,6 @@
+import '../../../../../core/navigator/navigator.dart';
 import '../../../../../core/petlovers_core.dart';
+import '../../address_page/address_shipping_page.dart';
 
 class CartLocationWidget extends StatelessWidget {
   const CartLocationWidget({
@@ -14,7 +16,7 @@ class CartLocationWidget extends StatelessWidget {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      padding: const EdgeInsets.only(left: PLThemeConstant.sizeM),
+      padding: const EdgeInsets.only(left: PLThemeConstant.sizeM, bottom: 5),
       width: size.width,
       height: PLThemeConstant.sizeL,
       color: Colors.white,
@@ -26,12 +28,19 @@ class CartLocationWidget extends StatelessWidget {
             TextSpan(
               children: [
                 const TextSpan(text: "Dikirim ke"),
-                TextSpan(
-                  text: " $location",
-                  style: textTheme.bodyMedium?.copyWith(
-                    fontWeight: FontWeight.bold,
+                WidgetSpan(
+                  child: InkWell(
+                    onTap: () {
+                      push(context: context, page: const ShippingAddressPage());
+                    },
+                    child: Text(
+                      " $location",
+                      style: textTheme.bodyMedium?.copyWith(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ),
-                ),
+                )
               ],
             ),
           ),

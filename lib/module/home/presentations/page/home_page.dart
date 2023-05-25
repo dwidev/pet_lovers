@@ -34,41 +34,21 @@ class _HomePageState extends ConsumerState<HomePage> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    return Scaffold(
+    return PetLoversScaffold(
+      withCartAction: true,
       backgroundColor: PLThemeConstant.white,
-      appBar: AppBar(
-        elevation: 0,
-        centerTitle: true,
-        backgroundColor: PLThemeConstant.white,
-        leading: IconButton(
-          onPressed: () {
-            TokenStorage(localStorage: const FlutterSecureStorage())
-                .deleteAll();
-            pushAndRemoveAll(context: context, page: const SplashPage());
-          },
-          icon: Image.asset(
-            homeMenu,
-            width: 30,
-            height: 30,
-          ),
+      customeLeading: IconButton(
+        onPressed: () {
+          TokenStorage(localStorage: const FlutterSecureStorage()).deleteAll();
+          pushAndRemoveAll(context: context, page: const SplashPage());
+        },
+        icon: Image.asset(
+          homeMenu,
+          width: 30,
+          height: 30,
         ),
-        title: Text(
-          "Fahmi dwi syahputra",
-          style: textTheme.bodyMedium,
-        ),
-        actions: [
-          IconButton(
-            onPressed: () {
-              push(context: context, page: const CartPage());
-            },
-            icon: Image.asset(
-              addToCart,
-              width: 30,
-              height: 30,
-            ),
-          ),
-        ],
       ),
+      title: "Fahmi dwi syahputra",
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Container(
